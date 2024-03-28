@@ -1,0 +1,4848 @@
+[
+  {
+    "id": "d0db4cd8-75d6-4242-bc0a-27f71f30531e",
+    "category_name": "Logistics",
+    "tool_name": "Transportistas de Argentina",
+    "api_name": "/tracking/correo_argentino/create_task/:service/:tracking_code",
+    "api_description": "Create task to get the history.\nThe result of the trace can be obtained after approximately 20-60 seconds by calling the endpoint: /tracking/correo_argentino/result_task/:task_id\n**IMPORTANT: ** The result will only be stored for approx 1 hour.",
+    "required_parameters": [
+      {
+        "name": "service",
+        "type": "STRING",
+        "description": "Service: ecommerce, mercadolibre, national, national-plus or national-international",
+        "default": "ecommerce"
+      },
+      {
+        "name": "tracking_code",
+        "type": "STRING",
+        "description": "Tracking code",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://transportistas-de-argentina.p.rapidapi.com/tracking/correo_argentino/create_task/{service}/{tracking_code}"
+  },
+  {
+    "id": "4d29c187-2ce1-4a7a-ad30-7b5ab9c61342",
+    "category_name": "Logistics",
+    "tool_name": "suivi-colis",
+    "api_name": "Count",
+    "api_description": "Compte le nombre d'étapes de l'historique, pratique pour limiter la consommation réseau ou les ressources sur un IoT. Permet par exemple de poller un état de manière optimale.",
+    "required_parameters": [
+      {
+        "name": "colisId",
+        "type": "string",
+        "description": "",
+        "default": "CA107308006SI"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "nbSteps": "int"
+    },
+    "api_url": "https://suivi-colis.p.rapidapi.com/colis/{colisid}/count"
+  },
+  {
+    "id": "8044d241-0f5b-403d-879a-48b080fd4bf6",
+    "category_name": "Data",
+    "tool_name": "whatsapp data",
+    "api_name": "Fetch profile picture",
+    "api_description": "Gets the whatsapp number profile picture, you can select its resolution (`high` or `low`) and the response format: `png` file, `url` or `base64` encoded file.",
+    "required_parameters": [
+      {
+        "name": "phone",
+        "type": "NUMBER",
+        "description": "",
+        "default": "34605797754"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "quality",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "pictype",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://whatsapp-data.p.rapidapi.com/wspicture"
+  },
+  {
+    "id": "a7c44eb0-c7f2-446a-b57e-45d0f629c50c",
+    "category_name": "Data",
+    "tool_name": "whatsapp data",
+    "api_name": "Fetch business data",
+    "api_description": "The endpoint will provide: `description`, `website`, `email`, `business hours`, `address` and `category`; if the number is a whatsapp for business account.",
+    "required_parameters": [
+      {
+        "name": "phone",
+        "type": "NUMBER",
+        "description": "",
+        "default": "34655719560"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://whatsapp-data.p.rapidapi.com/bizinfo"
+  },
+  {
+    "id": "f657180c-3685-410d-8c71-a5f7632602f1",
+    "category_name": "Data",
+    "tool_name": "whatsapp data",
+    "api_name": "Is whatsapp for business?",
+    "api_description": "Requests to this endpoint will return `true` if the number is a **Whatsapp for Business** account, or `false` if it's not.",
+    "required_parameters": [
+      {
+        "name": "phone",
+        "type": "NUMBER",
+        "description": "",
+        "default": "34655719560"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://whatsapp-data.p.rapidapi.com/isbiz"
+  },
+  {
+    "id": "613a95fa-d58d-4832-8829-a4ee6efe3a9a",
+    "category_name": "Movies",
+    "tool_name": "OTT details",
+    "api_name": "Advanced Search",
+    "api_description": "This endpoint allows you to search for a movie or tvshow based on various parameters such as release year , imdb rating , genre , language etc.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "start_year",
+        "type": "NUMBER",
+        "description": "Enter any year between 1970 to 2020 to get results.",
+        "default": "1970"
+      },
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "max_imdb",
+        "type": "NUMBER",
+        "description": "",
+        "default": "7.8"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "description": "Enter type 'movie' or 'show'",
+        "default": "movie"
+      },
+      {
+        "name": "sort",
+        "type": "STRING",
+        "description": "Enter values highestrated , lowestrated , latest , oldest to  sort results accodingly .",
+        "default": "latest"
+      },
+      {
+        "name": "min_imdb",
+        "type": "NUMBER",
+        "description": "",
+        "default": "6"
+      },
+      {
+        "name": "genre",
+        "type": "STRING",
+        "description": "use comma seperated values to enter multiple genre eg : action,horror",
+        "default": "action"
+      },
+      {
+        "name": "language",
+        "type": "STRING",
+        "description": "use comma seperated values to enter multiple values , eg : english,german",
+        "default": "english"
+      },
+      {
+        "name": "end_year",
+        "type": "NUMBER",
+        "description": "Enter any year from 1970 to 2020 to  get results.",
+        "default": "2020"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "page": "int",
+      "results": [
+        {
+          "imageurl": ["list of str with length 1"],
+          "genre": ["list of str with length 3"],
+          "imdbid": "str",
+          "title": "str",
+          "imdbrating": "float",
+          "released": "int",
+          "synopsis": "str",
+          "type": "str",
+          "_list_length": 50
+        }
+      ]
+    },
+    "api_url": "https://ott-details.p.rapidapi.com/advancedsearch"
+  },
+  {
+    "id": "bc018f51-36c4-44a6-af05-6d02754eedc7",
+    "category_name": "Movies",
+    "tool_name": "OTT details",
+    "api_name": "Basic Info",
+    "api_description": "Get info on a  cast such as name , profession , birth and death year , bio , poster , best titles  etc.",
+    "required_parameters": [
+      {
+        "name": "peopleid",
+        "type": "STRING",
+        "description": "",
+        "default": "nm0000375"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "peopleid": "str",
+      "name": "str",
+      "profession": ["list of str with length 3"],
+      "knownForTitles": ["list of str with length 4"],
+      "birthYear": "str",
+      "deathYear": "str",
+      "bio": "str",
+      "born": "str",
+      "birthName": "str",
+      "poster": ["list of str with length 1"]
+    },
+    "api_url": "https://ott-details.p.rapidapi.com/getcastdetails"
+  },
+  {
+    "id": "e3b25999-8e54-4b3d-ac8c-8c08f46fdea5",
+    "category_name": "Movies",
+    "tool_name": "OTT details",
+    "api_name": "Title Details",
+    "api_description": "Get basic information on a movie or tv show such as imdbid , title , genre , runtime , imdbrating , language , synopsis , type , imageurl  , Streaming platforms info etc.",
+    "required_parameters": [
+      {
+        "name": "imdbid",
+        "type": "STRING",
+        "description": "",
+        "default": "tt9904802"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "imageurl": ["list of str with length 1"],
+      "genre": ["list of str with length 1"],
+      "imdbid": "str",
+      "title": "str",
+      "runtime": "str",
+      "imdbrating": "float",
+      "released": "int",
+      "synopsis": "str",
+      "type": "str",
+      "language": ["list of str with length 4"],
+      "streamingAvailability": {
+        "country": {
+          "US": [
+            {
+              "url": "str",
+              "platform": "str",
+              "_list_length": 9
+            }
+          ]
+        }
+      }
+    },
+    "api_url": "https://ott-details.p.rapidapi.com/gettitledetails"
+  },
+  {
+    "id": "6992814b-d3c7-4d4c-a163-63aece3ab6b0",
+    "category_name": "Video_Images",
+    "tool_name": "Quality Porn",
+    "api_name": "Pornstar search",
+    "api_description": "Search for a porn star using the \"Query\".\nA list of all stars found is returned, or a detail pornstar if only one is found.",
+    "required_parameters": [
+      {
+        "name": "query",
+        "type": "STRING",
+        "description": "",
+        "default": "abella"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "responseImagesBase64",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "responseImages",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "responseProfileImageBase64",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "responseProfileImage",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "data": [
+        {
+          "name": "str",
+          "key": "str",
+          "url": "str",
+          "_list_length": 125
+        }
+      ]
+    },
+    "api_url": "https://quality-porn.p.rapidapi.com/pornstar/search"
+  },
+  {
+    "id": "b37e7e52-b0d8-4152-bac1-da69582fc6e6",
+    "category_name": "Video_Images",
+    "tool_name": "YouTube Mp3 Downloader",
+    "api_name": "Download mp3 (custom audio quality)",
+    "api_description": "Download YouTube to Mp3 in various audio quality: 320 Kbps, 192Kbps, 256Kbps, 128Kbps & 64Kbps. (Specify the quality in the field)",
+    "required_parameters": [
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "",
+        "default": "https://www.youtube.com/watch?v=LjyCyatq5XE"
+      },
+      {
+        "name": "quality",
+        "type": "NUMBER",
+        "description": "Select the audio quality of the output mp3. Allowed values are:\n320\n192\n256\n128\n64",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "messages": "str",
+      "info": "str"
+    },
+    "api_url": "https://youtube-mp3-downloader2.p.rapidapi.com/ytmp3/ytmp3/custom/"
+  },
+  {
+    "id": "2a3bcc0f-9e48-40a5-885a-d9fe6ea13aa9",
+    "category_name": "Video_Images",
+    "tool_name": "YouTube Mp3 Downloader",
+    "api_name": "Download YouTube Mp3",
+    "api_description": "Update: 17 May 2023: API is fixed & it is now 100% working. Converts any YouTube video into Mp3 downloadable files. No Ads. No wild redirects.",
+    "required_parameters": [
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "",
+        "default": "https://www.youtube.com/watch?v=hN5MBlGv2Ac"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "title": "str",
+      "link": "str",
+      "length": "str",
+      "size": "str"
+    },
+    "api_url": "https://youtube-mp3-downloader2.p.rapidapi.com/ytmp3/ytmp3/"
+  },
+  {
+    "id": "4ecac9f2-4250-4b10-b108-3de9eabb5a4b",
+    "category_name": "Financial",
+    "tool_name": "MarketCI Analytics",
+    "api_name": "Price Probability",
+    "api_description": "Based on over 1000 forecasts, the probabilistic outcome is above or below the current price in a normal distribution.",
+    "required_parameters": [
+      {
+        "name": "symbol",
+        "type": "string",
+        "description": "",
+        "default": "AAPL"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "symbol": "str",
+      "data": {
+        "one_day_probability_up": "float",
+        "one_week_probability_up": "float",
+        "probability_of_forecast": "float",
+        "one_day_probability_down": "float",
+        "one_month_probability_up": "float",
+        "one_week_probability_down": "float",
+        "one_month_probability_down": "float"
+      }
+    },
+    "api_url": "https://marketci-analytics.p.rapidapi.com/probabilities/{symbol}"
+  },
+  {
+    "id": "e95f1cd3-d8ac-49f6-b277-0b1bd254432b",
+    "category_name": "Financial",
+    "tool_name": "Candlestick Chart",
+    "api_name": "Binance charts",
+    "api_description": "This endpoint creates candlestick charts for any cryptocurrency listed on [Binance](https://www.binance.com) that you want!",
+    "required_parameters": [
+      {
+        "name": "symbol",
+        "type": "STRING",
+        "description": "Symbol for the traiding pair\n\nYou can see every traiding pair available [here](https://coinmarketcap.com/en/exchanges/binance)",
+        "default": "BTCUSDT"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "Amount of candles in the chart\n\n- Default: 16\n- Type: Integer. Maximum 1000",
+        "default": "16"
+      },
+      {
+        "name": "interval",
+        "type": "STRING",
+        "description": "Time interval for each candle.\n\n- Default: 1m\n\n## Time intervals\n- m: Minutes\n- h: Hours\n- d: Days\n- w: Weeks\n- M: Months\n\nList of intervals:\n- 1m\n- 3m\n- 5m\n- 15m\n- 30m\n- 1h\n- 2h\n- 4h\n- 6h\n- 8h\n- 12h\n- 1d\n- 3d\n- 1w\n- 1M",
+        "default": "1m"
+      },
+      {
+        "name": "lastPrice",
+        "type": "NUMBER",
+        "description": "The last price that the chart must have. This could be useful if there is some delay between your analysis and the call to this API, and that delay could make a difference between the numbers and the chart. If not given, the chart will be created with Binance last price\n\n- Type: Number",
+        "default": "57500"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "chartImage": "str"
+    },
+    "api_url": "https://candlestick-chart.p.rapidapi.com/binance"
+  },
+  {
+    "id": "80fac4fd-99aa-4b33-aa56-ecc3b324226e",
+    "category_name": "Financial",
+    "tool_name": "Currency Converter_v3",
+    "api_name": "converter",
+    "api_description": "This endpoint is used to perform currency conversion between multiple currencies. The endpoint accepts input parameters in the form of the amount of money, source currency, and one or more target currencies.",
+    "required_parameters": [
+      {
+        "name": "target",
+        "type": "STRING",
+        "description": "This parameter specifies the currency code of the currency that you want to convert to. It is a mandatory parameter and should be a valid three-letter currency code. If there are multiple target currencies, they should be separated by a comma (',') .",
+        "default": "EUR,INR,JPY"
+      },
+      {
+        "name": "source",
+        "type": "STRING",
+        "description": "This parameter represents the currency from which you want to convert. It is a mandatory parameter and should be a valid three-letter currency code, such as USD (United States Dollar) or EUR (Euro) or many others.",
+        "default": "USD"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "amount",
+        "type": "NUMBER",
+        "description": "This parameter represents the amount that you want to convert from the source currency to the target currency. It is an optional parameter, and if not provided, the default value will be set to 1",
+        "default": "1"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://currency-converter219.p.rapidapi.com/converter"
+  },
+  {
+    "id": "d13029d4-a84e-4570-b743-3e06551fa08d",
+    "category_name": "Media",
+    "tool_name": "🚀 Cheap YouTube API 🔥",
+    "api_name": "Trending (music, gaming, news, movies)",
+    "api_description": "Get trending videos.\n\nOptional parameters:\ntype: \"music\", \"gaming\", \"news\", \"movies\"\nregion: ISO 3166 country code (default: \"US\")",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "type",
+        "type": "STRING",
+        "description": "",
+        "default": "gaming"
+      },
+      {
+        "name": "region",
+        "type": "STRING",
+        "description": "",
+        "default": "US"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "type": "str",
+      "title": "str",
+      "videoId": "str",
+      "author": "str",
+      "authorId": "str",
+      "authorUrl": "str",
+      "authorVerified": "bool",
+      "videoThumbnails": [
+        {
+          "quality": "str",
+          "url": "str",
+          "width": "int",
+          "height": "int",
+          "_list_length": 9
+        }
+      ],
+      "description": "str",
+      "descriptionHtml": "str",
+      "viewCount": "int",
+      "viewCountText": "str",
+      "published": "int",
+      "publishedText": "str",
+      "lengthSeconds": "int",
+      "liveNow": "bool",
+      "premium": "bool",
+      "isUpcoming": "bool"
+    },
+    "api_url": "https://cheap-youtube-api.p.rapidapi.com/trending"
+  },
+  {
+    "id": "56a10458-ac5d-45d8-a05e-1f9daab69f27",
+    "category_name": "Media",
+    "tool_name": "🚀 Cheap YouTube API 🔥",
+    "api_name": "Comments",
+    "api_description": "**Get comments from a video**\nexample: /comments/dQw4w9WgXcQ\n\n**Parameters**\nsort_by: \"top\", \"new\" (default: top)",
+    "required_parameters": [
+      {
+        "name": "id",
+        "type": "string",
+        "description": "",
+        "default": "dQw4w9WgXcQ"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "sort_by",
+        "type": "STRING",
+        "description": "",
+        "default": "top"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "commentCount": "int",
+      "videoId": "str",
+      "comments": [
+        {
+          "verified": "bool",
+          "author": "str",
+          "authorThumbnails": [
+            {
+              "url": "str",
+              "width": "int",
+              "height": "int",
+              "_list_length": 3
+            }
+          ],
+          "authorId": "str",
+          "authorUrl": "str",
+          "isEdited": "bool",
+          "content": "str",
+          "contentHtml": "str",
+          "isPinned": "bool",
+          "isSponsor": "bool",
+          "published": "int",
+          "publishedText": "str",
+          "likeCount": "int",
+          "commentId": "str",
+          "authorIsChannelOwner": "bool",
+          "replies": {
+            "replyCount": "int",
+            "continuation": "str"
+          },
+          "_list_length": 20
+        }
+      ],
+      "continuation": "str"
+    },
+    "api_url": "https://cheap-youtube-api.p.rapidapi.com/comments/{is_id}"
+  },
+  {
+    "id": "7b341fa2-4437-45c3-a1ec-39d259dc7458",
+    "category_name": "Media",
+    "tool_name": "Shazam",
+    "api_name": "Artist Search",
+    "api_description": "This endpoint let you search for an artist by their name. You can get a list of artists from its name.",
+    "required_parameters": [
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "",
+        "default": "5"
+      },
+      {
+        "name": "artist",
+        "type": "STRING",
+        "description": "",
+        "default": "Justin Bieber"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "artists": {
+        "hits": [
+          {
+            "actions": [
+              {
+                "id": "str",
+                "name": "str",
+                "type": "str",
+                "_list_length": 1
+              }
+            ],
+            "alias": "str",
+            "avatar": {
+              "blurred": "str",
+              "default": "str",
+              "play": "str"
+            },
+            "follow": {
+              "followkey": "str"
+            },
+            "id": "str",
+            "name": "str",
+            "url": "str",
+            "verified": "bool",
+            "_list_length": 1
+          }
+        ]
+      }
+    },
+    "api_url": "https://shazam8.p.rapidapi.com/artist/search"
+  },
+  {
+    "id": "542cc284-32db-4c35-871d-c6a701180f76",
+    "category_name": "eCommerce",
+    "tool_name": "Amazon Turkey Data Scrapeer",
+    "api_name": "Get Product Offers in Turkey",
+    "api_description": "This endpoint can get you product offers in amazon tr products. This method is required the product id in the amazon tr page if you don't know you can get search with my method to. And you need to api_key scraperapi you can get easly in this site ; https://www.scraperapi.com/",
+    "required_parameters": [
+      {
+        "name": "productId",
+        "type": "string",
+        "description": "",
+        "default": "B08HM9LVD1"
+      },
+      {
+        "name": "api_key",
+        "type": "STRING",
+        "description": "",
+        "default": "8b019bccf487085276e843da7a76f57f"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://amazon-turkey-data-scrapeer.p.rapidapi.com/products/{productid}/offers"
+  },
+  {
+    "id": "7fe718f7-34e9-4f66-b43f-254d8ef795b7",
+    "category_name": "eCommerce",
+    "tool_name": "Amazon Turkey Data Scrapeer",
+    "api_name": "Get Product Reviews in Turkey",
+    "api_description": "This endpoint can get you product reviews in amazon tr products. This method is required the product id in the amazon tr page if you don't know you can get search with my method to. And you need to api_key scraperapi you can get easly in this site ; https://www.scraperapi.com/",
+    "required_parameters": [
+      {
+        "name": "productId",
+        "type": "string",
+        "description": "",
+        "default": "B08HM9LVD1"
+      },
+      {
+        "name": "api_key",
+        "type": "STRING",
+        "description": "",
+        "default": "8b019bccf487085276e843da7a76f57f"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "name": "str",
+      "statusCode": "int",
+      "message": "str",
+      "error": "str",
+      "options": {
+        "uri": "str",
+        "simple": "bool",
+        "resolveWithFullResponse": "bool",
+        "transform2xxOnly": "bool"
+      },
+      "response": {
+        "statusCode": "int",
+        "body": "str",
+        "headers": {
+          "date": "str",
+          "content-type": "str",
+          "content-length": "str",
+          "connection": "str",
+          "x-powered-by": "str",
+          "access-control-allow-origin": "str",
+          "access-control-allow-headers": "str",
+          "access-control-allow-methods": "str",
+          "access-control-allow-credentials": "str",
+          "x-robots-tag": "str",
+          "etag": "str",
+          "vary": "str"
+        },
+        "request": {
+          "uri": {
+            "protocol": "str",
+            "slashes": "bool",
+            "auth": "NoneType",
+            "host": "str",
+            "port": "int",
+            "hostname": "str",
+            "hash": "NoneType",
+            "search": "str",
+            "query": "str",
+            "pathname": "str",
+            "path": "str",
+            "href": "str"
+          },
+          "method": "str",
+          "headers": {}
+        }
+      }
+    },
+    "api_url": "https://amazon-turkey-data-scrapeer.p.rapidapi.com/products/{productid}/reviews"
+  },
+  {
+    "id": "e5c4a14f-230c-4230-9a64-5828ec62baf1",
+    "category_name": "eCommerce",
+    "tool_name": "Amazon Turkey Data Scrapeer",
+    "api_name": "Search Product in Turkey",
+    "api_description": "This endpoint can get you search all product in amazon tr . This method is required the search key . And you need to api_key scraperapi you can get easly in this site ; https://www.scraperapi.com/",
+    "required_parameters": [
+      {
+        "name": "searchQuery",
+        "type": "string",
+        "description": "",
+        "default": "krampon"
+      },
+      {
+        "name": "api_key",
+        "type": "STRING",
+        "description": "",
+        "default": "8b019bccf487085276e843da7a76f57f"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {},
+    "api_url": "https://amazon-turkey-data-scrapeer.p.rapidapi.com/search/{searchquery}"
+  },
+  {
+    "id": "ea8347e9-ea95-48f0-8519-8cfcb185adb5",
+    "category_name": "Sports",
+    "tool_name": "Serie A",
+    "api_name": "Match details by Id",
+    "api_description": "Via this endpoint, you can retrieve the match details given a certain Match Id. Match Ids can be obtained through the Matches List endpoint. You can also query for live matches and for matches played starting from 1990.",
+    "required_parameters": [
+      {
+        "name": "match_id",
+        "type": "string",
+        "description": "",
+        "default": "2022-34-INTROM"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "MatchId": "str",
+      "data": [
+        {
+          "Text": "str",
+          "_list_length": 1
+        }
+      ]
+    },
+    "api_url": "https://serie-a2.p.rapidapi.com/match_stats/{match_id}"
+  },
+  {
+    "id": "35352d6c-cc9b-403c-b0e9-51dfa3e7ed47",
+    "category_name": "Sports",
+    "tool_name": "Serie A",
+    "api_name": "Team Stats by Category",
+    "api_description": "This endpoints allows you to retrieve players statistics accross different categories. Possible categories are: goals, shots, assists, crosses, saves, avgkmtraveled, headshotgoals , offsides,  corners , playingtime, posts-crossbars ,ballpossession]",
+    "required_parameters": [
+      {
+        "name": "category",
+        "type": "string",
+        "description": " Possible categories are: goals, shots, assists, crosses, saves, avgkmtraveled, headshotgoals , offsides,  corners , playingtime, posts-crossbars ,ballpossession]",
+        "default": "shots"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "internal_error": "str"
+    },
+    "api_url": "https://serie-a2.p.rapidapi.com/team_stats/{category}"
+  },
+  {
+    "id": "382b8d1b-2d79-48b8-afe3-cf4b90d301fe",
+    "category_name": "Sports",
+    "tool_name": "Serie A",
+    "api_name": "Matches List by Season and Matchday",
+    "api_description": "Via this endpoint, you can retrieve all the matches that occurred on a given matchday in a given season. Note that we support season starting from **1990** till **2022**, and matchday between **1** and **38**.",
+    "required_parameters": [
+      {
+        "name": "matchday",
+        "type": "NUMBER",
+        "description": "matchday>=1 and matchday<=38",
+        "default": "34"
+      },
+      {
+        "name": "year",
+        "type": "NUMBER",
+        "description": "year>=1990 and year<=2022",
+        "default": "2022"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "MatchDay": "int",
+      "Year": "int",
+      "data": "empty list"
+    },
+    "api_url": "https://serie-a2.p.rapidapi.com/match_schedule/{year}/{matchday}"
+  },
+  {
+    "id": "defb1d05-621c-4bea-b07d-7f5c6da0f2ec",
+    "category_name": "Email",
+    "tool_name": "Blaze Verify",
+    "api_name": "Get the status of a batch",
+    "api_description": "GET requests to the batch endpoint will get the current status of the batch verification job specified in the \"id\" parameter.<br><br>When a credit card transaction is necessary to obtain enough credits to verify a batch, billing related messages will be returned if there is an error. These will be sent with a 402 response code.<br><br>",
+    "required_parameters": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "description": "The id of the batch.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://blaze-verify.p.rapidapi.com/v1/batch"
+  },
+  {
+    "id": "3af905c6-f7e0-42e0-99dd-d8ffd93426b5",
+    "category_name": "Email",
+    "tool_name": "Blaze Verify",
+    "api_name": "Verify an email",
+    "api_description": "Verify a single email. If a verification request takes longer than the timeout, you may retry this request for up to 5 minutes. After 5 minutes, further requests will count against your usage. The verification result will be returned when it is available.<br><br>",
+    "required_parameters": [
+      {
+        "name": "email",
+        "type": "STRING",
+        "description": "The email you want verified.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "accept_all",
+        "type": "BOOLEAN",
+        "description": "Does an accept-all check. Heavily impacts API's response time. Default: false",
+        "default": ""
+      },
+      {
+        "name": "smtp",
+        "type": "BOOLEAN",
+        "description": "The SMTP step takes up a majority of the API's response time. If you would like to speed up your response times, you can disable this step. Default: true",
+        "default": ""
+      },
+      {
+        "name": "timeout",
+        "type": "NUMBER",
+        "description": "Optional timeout to wait for response (in seconds). Min: 2, Max: 30. Default: 5",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "accept_all": "bool",
+      "did_you_mean": "NoneType",
+      "disposable": "bool",
+      "domain": "str",
+      "duration": "float",
+      "email": "str",
+      "first_name": "str",
+      "free": "bool",
+      "full_name": "str",
+      "gender": "str",
+      "last_name": "NoneType",
+      "mx_record": "str",
+      "reason": "str",
+      "role": "bool",
+      "score": "int",
+      "smtp_provider": "str",
+      "state": "str",
+      "tag": "NoneType",
+      "user": "str"
+    },
+    "api_url": "https://blaze-verify.p.rapidapi.com/v1/verify"
+  },
+  {
+    "id": "4da94713-e796-4b01-bb43-3be3975a80e2",
+    "category_name": "Mapping",
+    "tool_name": "Places Nearby a Coordinates",
+    "api_name": "Nearby",
+    "api_description": "Returns nearby places sorted by distance from the origin coordinates in ascending order.\n\nReturns up to 60 places per request.",
+    "required_parameters": [
+      {
+        "name": "lon",
+        "type": "NUMBER",
+        "description": "Longitude",
+        "default": "-73.987719"
+      },
+      {
+        "name": "lat",
+        "type": "NUMBER",
+        "description": "Latitude",
+        "default": "40.749779"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "categories",
+        "type": "STRING",
+        "description": "Default: catering.cafe",
+        "default": "catering.cafe"
+      },
+      {
+        "name": "radius",
+        "type": "NUMBER",
+        "description": "**Meters**\nDefault: 200\nMaximum: 50000",
+        "default": "500"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://places-nearby-a-coordinates.p.rapidapi.com/nearby"
+  },
+  {
+    "id": "dcb844a7-d446-4eab-8ba1-b8e566f2dc40",
+    "category_name": "Mapping",
+    "tool_name": "Mapilion - Vector and Raster Map Tiles",
+    "api_name": "Get Hillshading Tile",
+    "api_description": "Returns special hillshading Raster tiles as PNG. Hillshading can be used as an overlay to create the look and feel of mountains. The version can be either v1 or v2.",
+    "required_parameters": [
+      {
+        "name": "x",
+        "type": "NUMBER",
+        "description": "",
+        "default": "756"
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "description": "",
+        "default": "v2"
+      },
+      {
+        "name": "z",
+        "type": "NUMBER",
+        "description": "",
+        "default": "11"
+      },
+      {
+        "name": "y",
+        "type": "NUMBER",
+        "description": "",
+        "default": "805"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://mapilion-vector-and-raster-map-tiles.p.rapidapi.com/rapid-api/hillshades/{version}/{z}/{x}/{y}"
+  },
+  {
+    "id": "c018c1b3-9e38-4080-8c7b-243aabb23728",
+    "category_name": "Mapping",
+    "tool_name": "Mapilion - Vector and Raster Map Tiles",
+    "api_name": "Get Tile Json",
+    "api_description": "Returns the tile json for the give style. Currently there are three different types:\n- `v3` the OpenMapTiles compatible vector tiles\n- `hillshading-v1` Hillshading tiles Version 1\n- `hillshading-v2` Hillshading tiles Version 2",
+    "required_parameters": [
+      {
+        "name": "type",
+        "type": "string",
+        "description": "",
+        "default": "v3"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "tiles": ["list of str with length 1"],
+      "name": "str",
+      "format": "str",
+      "basename": "str",
+      "id": "str",
+      "attribution": "str",
+      "center": ["list of int with length 3"],
+      "description": "str",
+      "maxzoom": "int",
+      "minzoom": "int",
+      "pixel_scale": "str",
+      "vector_layers": [
+        {
+          "maxzoom": "int",
+          "fields": {
+            "class": "str"
+          },
+          "minzoom": "int",
+          "id": "str",
+          "description": "str",
+          "_list_length": 15
+        }
+      ],
+      "version": "str",
+      "maskLevel": "str",
+      "bounds": ["list of int with length 4"],
+      "planettime": "str",
+      "tilejson": "str"
+    },
+    "api_url": "https://mapilion-vector-and-raster-map-tiles.p.rapidapi.com/rapid-api/tilejson/{type}"
+  },
+  {
+    "id": "0342cd8a-cbe2-4990-af91-f3e603bb3c6e",
+    "category_name": "Finance",
+    "tool_name": "Rankiteo Climate Risk Assessment",
+    "api_name": "GetClimateScoreByGps",
+    "api_description": "Get climate score for a specific location mapped to some industries/disasters with a given gps position.",
+    "required_parameters": [
+      {
+        "name": "latitude",
+        "type": "NUMBER",
+        "description": "",
+        "default": "48.856613"
+      },
+      {
+        "name": "longitude",
+        "type": "NUMBER",
+        "description": "",
+        "default": "2.352222"
+      },
+      {
+        "name": "disaster_type_number",
+        "type": "NUMBER",
+        "description": "0 : **ALL**\n1 : Air Quality\n2 : Earthquake\n3 : Floods\n4 : Heat Stress\n5 : Sea Level Rise \n6 : Tropical\n7 : Tsunami\n8 : Volcano\n9 : Water Stress\n10 : Wildfire",
+        "default": ""
+      },
+      {
+        "name": "activity_type_number",
+        "type": "NUMBER",
+        "description": "0 : **ALL**\n1 : Agriculture\n2 : Nuclear Plants\n3 : Telecommunications\n4 : Education\n5 : Automobile\n6 : Chemical Industry\n7 : Market\n8 : Finance Industry\n9 : Aerospace, \n10 : Construction\n11 : Mining\n12 : News Media\n13 : Pharmaceutical\n14 : Datacenter\n15 : Entertainment complex\n16 : Freight logistics\n17 : Hospital\n18 : Hotel\n19 : Manufacturing\n20 : Office\n21 : Shopping center\n22 : Residential complex\n23 : Storage Ware houses\n24 : Oil and Gas Industry\n25 : Transportation",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://rankiteo-climate-risk-assessment.p.rapidapi.com/getclimatescorebygps"
+  },
+  {
+    "id": "72d69c72-6d35-4374-adb5-32d5bd714214",
+    "category_name": "Finance",
+    "tool_name": "Bybit",
+    "api_name": "Get Funding Rate History",
+    "api_description": "The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.",
+    "required_parameters": [
+      {
+        "name": "interval",
+        "type": "STRING",
+        "description": "Kline interval. enum: 1 3 5 15 30 60 120 240 360 720 \\\\\\\\\\\\\\\"D\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\"M\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\"W\\\\\\\\\\\\\\\" ",
+        "default": "D"
+      },
+      {
+        "name": "start",
+        "type": "NUMBER",
+        "description": "Start timestamp point for result, in milliseconds",
+        "default": "1652112000000"
+      },
+      {
+        "name": "category",
+        "type": "STRING",
+        "description": "Derivatives products category.For now, *linear inverse* are available",
+        "default": "linear"
+      },
+      {
+        "name": "end",
+        "type": "NUMBER",
+        "description": "End timestamp point for result, in milliseconds",
+        "default": "1652544000000"
+      },
+      {
+        "name": "symbol",
+        "type": "STRING",
+        "description": "Symbol",
+        "default": "BTCUSDT"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "retCode": "int",
+      "retMsg": "str",
+      "result": {},
+      "retExtInfo": {},
+      "time": "int"
+    },
+    "api_url": "https://bybit4.p.rapidapi.com/derivatives/v3/public/funding/history-funding-rate"
+  },
+  {
+    "id": "1366b7b9-df01-4e4b-b53a-5ad7e4a740aa",
+    "category_name": "Finance",
+    "tool_name": "Bybit",
+    "api_name": "Open Interest",
+    "api_description": "Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.",
+    "required_parameters": [
+      {
+        "name": "symbol",
+        "type": "STRING",
+        "description": "Symbol",
+        "default": "BTCUSD"
+      },
+      {
+        "name": "period",
+        "type": "STRING",
+        "description": "Data recording period. 5min, 15min, 30min, 1h, 4h, 1d",
+        "default": "5min"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "ret_code": "int",
+      "ret_msg": "str",
+      "result": {},
+      "ext_code": "str",
+      "ext_info": "str",
+      "time_now": "str"
+    },
+    "api_url": "https://bybit4.p.rapidapi.com/v2/public/open-interest"
+  },
+  {
+    "id": "52ea8beb-cc49-48e8-b403-642f7fdbc8cb",
+    "category_name": "Health_and_Fitness",
+    "tool_name": "Appointment System API",
+    "api_name": "Get Appointments",
+    "api_description": "EndPoints returns all appointments in the date. \n\nParameter Description :\ndate : the date the appointments is requested\nclinicName : Name of the clinic\n\nReturn Value : \nIt returns json object. Json contains all the appointments in requested date.\n\nJson Format :\n\nhLabel:\"07:00\"\nid:5\naDay:\"2022-09-09T00:00:00\"\naHour:58\naName:\"Efe Kemal TASAR\"\naTel:\"+905376853054\"\naType:\"Appoint\"",
+    "required_parameters": [
+      {
+        "name": "date",
+        "type": "STRING",
+        "description": "",
+        "default": "2022.09.09"
+      },
+      {
+        "name": "clinicName",
+        "type": "STRING",
+        "description": "",
+        "default": "DemoUser"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {},
+    "api_url": "https://appointment-system-api.p.rapidapi.com/appointment/getappointments"
+  },
+  {
+    "id": "6728a06d-88b8-4d2b-b327-358a58ea48c1",
+    "category_name": "Health_and_Fitness",
+    "tool_name": "Suggestic",
+    "api_name": "Remove a Meal Plan",
+    "api_description": "Use the **removeMealPlan** mutation to remove the current and following days in the profile's meal plan. Therefore, it is not possible to delete meal plans which dates have already passed.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "auth",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "errors": [
+        {
+          "message": "str",
+          "extensions": {
+            "code": "str"
+          },
+          "_list_length": 1
+        }
+      ]
+    },
+    "api_url": "https://suggestic1.p.rapidapi.com/"
+  },
+  {
+    "id": "06b5ca1a-0c85-4996-b61a-aeeaa9400ca0",
+    "category_name": "Health_and_Fitness",
+    "tool_name": "Workout Planner",
+    "api_name": "Get Workout Plan",
+    "api_description": "Get Workout Plans\n\nThis api request can be used to get Workout plan based on:\n\n- Time duration\n- Target Muscle\n- Location\n- Equipment\n\nHence api call takes 4 query parameters:\n\n- time\n- muscle\n- location\n- equipment",
+    "required_parameters": [
+      {
+        "name": "time",
+        "type": "STRING",
+        "description": "",
+        "default": "30"
+      },
+      {
+        "name": "equipment",
+        "type": "STRING",
+        "description": "",
+        "default": "dumbbells"
+      },
+      {
+        "name": "muscle",
+        "type": "STRING",
+        "description": "",
+        "default": "biceps"
+      },
+      {
+        "name": "location",
+        "type": "STRING",
+        "description": "",
+        "default": "gym"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "_id": "str",
+      "Warm Up": [
+        {
+          "Exercise": "str",
+          "Time": "str",
+          "_list_length": 2
+        }
+      ],
+      "Exercises": [
+        {
+          "Exercise": "str",
+          "Sets": "str",
+          "Reps": "str",
+          "_list_length": 4
+        }
+      ],
+      "Cool Down": [
+        {
+          "Exercise": "str",
+          "Time": "str",
+          "_list_length": 2
+        }
+      ],
+      "key": "str"
+    },
+    "api_url": "https://workout-planner1.p.rapidapi.com/"
+  },
+  {
+    "id": "d41400dd-6ce8-4742-92d9-e01c7387d247",
+    "category_name": "Travel",
+    "tool_name": "IRCTC",
+    "api_name": "Get Train Live Status",
+    "api_description": "This API will take train no and day of journey, and will return current status of train with other informations.",
+    "required_parameters": [
+      {
+        "name": "trainNo",
+        "type": "STRING",
+        "description": "",
+        "default": "19038"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "startDay",
+        "type": "STRING",
+        "description": "Optional File\nstart day range from 0-4\n0 = Day 1\n1 = 1 Day Ago\n2 = 2 Day Ago\n3 = 3 Day Ago\n4 = 4 Day Ago",
+        "default": "1"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://irctc1.p.rapidapi.com/api/v1/livetrainstatus"
+  },
+  {
+    "id": "c84af6be-804a-4965-93a5-cdbc29586f00",
+    "category_name": "Travel",
+    "tool_name": "Booking com",
+    "api_name": "Hotels Search",
+    "api_description": "Get available hotels by the filter. Indicate the `destination_id` and `dest_type` -> use **@Search locations** endpoint, check-in and check-out date, number of adults and children. For possible filters use **@Filters for search** endpoint. Use `page_number` to paginate and navigate through the result pages! <br/> Comparable to: ![Search locations](https://i.imgur.com/PCuK81r.png)",
+    "required_parameters": [
+      {
+        "name": "order_by",
+        "type": "STRING",
+        "description": "",
+        "default": "popularity"
+      },
+      {
+        "name": "adults_number",
+        "type": "NUMBER",
+        "description": "Number of adults",
+        "default": "2"
+      },
+      {
+        "name": "checkin_date",
+        "type": "STRING",
+        "description": "Checkin date",
+        "default": "2023-09-27"
+      },
+      {
+        "name": "filter_by_currency",
+        "type": "STRING",
+        "description": "",
+        "default": "AED"
+      },
+      {
+        "name": "dest_id",
+        "type": "NUMBER",
+        "description": "Destination id, use `Search locations` to find a place, field `dest_id` and `dest_type`",
+        "default": -553173
+      },
+      {
+        "name": "locale",
+        "type": "STRING",
+        "description": "",
+        "default": "en-gb"
+      },
+      {
+        "name": "checkout_date",
+        "type": "STRING",
+        "description": "Checkout date",
+        "default": "2023-09-28"
+      },
+      {
+        "name": "units",
+        "type": "STRING",
+        "description": "",
+        "default": "metric"
+      },
+      {
+        "name": "room_number",
+        "type": "NUMBER",
+        "description": "Number of rooms",
+        "default": "1"
+      },
+      {
+        "name": "dest_type",
+        "type": "STRING",
+        "description": "",
+        "default": "city"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "include_adjacency",
+        "type": "BOOLEAN",
+        "description": "Include nearby places. If there are few hotels in the selected location, nearby locations will be added. You should pay attention to the `primary_count` parameter - it is the number of hotels from the beginning of the array that matches the strict filter.",
+        "default": true
+      },
+      {
+        "name": "children_number",
+        "type": "NUMBER",
+        "description": "Number of children",
+        "default": "2"
+      },
+      {
+        "name": "page_number",
+        "type": "NUMBER",
+        "description": "Page number",
+        "default": "0"
+      },
+      {
+        "name": "children_ages",
+        "type": "STRING",
+        "description": "The age of every child. If children will be staying in the room, please indicate their ages separated by commas. 0-less than a year",
+        "default": "5,0"
+      },
+      {
+        "name": "categories_filter_ids",
+        "type": "STRING",
+        "description": "Search filter IDs. For possible filters use `@Filters for search` ex: `price::USD-140-190`, or `price::USD-150-min` or `price::USD-150-max`",
+        "default": "class::2,class::4,free_cancellation::1"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://booking-com.p.rapidapi.com/v2/hotels/search"
+  },
+  {
+    "id": "0012dd9b-d12b-47d8-ba27-981be925544a",
+    "category_name": "Travel",
+    "tool_name": "Nomad List Cities",
+    "api_name": "Latin America",
+    "api_description": "Get Latin America cities sorted by overall score by default.\n\nPagination: size & page \nsort_by: you can sort by any numeric value like fore example internet_speed, temperatureC, cost_for_family_in_usd and so on.\nsort: asc | desc",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "sort_by",
+        "type": "STRING",
+        "description": "",
+        "default": "overall_score"
+      },
+      {
+        "name": "page",
+        "type": "STRING",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "sort",
+        "type": "STRING",
+        "description": "",
+        "default": "desc"
+      },
+      {
+        "name": "size",
+        "type": "STRING",
+        "description": "",
+        "default": "20"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://nomad-list-cities.p.rapidapi.com/nomad-list/latin-america"
+  },
+  {
+    "id": "7c854bec-b201-463c-b150-2fef0b9a2826",
+    "category_name": "Database",
+    "tool_name": "aaaa",
+    "api_name": "Get All Teams",
+    "api_description": "Get information about all of the Teams in a specific Organization, including the `name`, `status`, and `description` for each Team. ",
+    "required_parameters": [
+      {
+        "name": "organizationId",
+        "type": "STRING",
+        "description": "A number associated with a specific organization. You can get the organizationId from the \"Organization\" tab on the Admin Panel, or by using the \"Get All Organizations\" endpoint.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "int",
+      "message": "str",
+      "correlationId": "str",
+      "timestamp": "str",
+      "path": "str",
+      "data": "str"
+    },
+    "api_url": "https://aaaa15.p.rapidapi.com/v1/organizations/{organizationid}/teams"
+  },
+  {
+    "id": "d25b5b43-4a1a-48d7-8110-c0a263774bcf",
+    "category_name": "Database",
+    "tool_name": "aaaa",
+    "api_name": "Get API by external custom ID",
+    "api_description": "Get information on specified API based on a given custom external ID, including `category`, `id`, and `name`",
+    "required_parameters": [
+      {
+        "name": "externalCustomId",
+        "type": "STRING",
+        "description": "An optional string associated with a specific API.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "int",
+      "message": "str",
+      "correlationId": "str",
+      "timestamp": "str",
+      "path": "str",
+      "data": "str"
+    },
+    "api_url": "https://aaaa15.p.rapidapi.com/v1/apis/external-custom-id/{externalcustomid}"
+  },
+  {
+    "id": "4a39a143-a756-4661-897d-0add5d31f84e",
+    "category_name": "Database",
+    "tool_name": "Motorcycle Specs Database",
+    "api_name": "Models by {Make}",
+    "api_description": "Get all models by make name\nex: /model/make-name/BMW\nsample:\n\n```\n    {\n        \"id\": 1514,\n        \"name\": \"450 Sports Enduro\"\n    },\n    {\n        \"id\": 1515,\n        \"name\": \"C 400 GT\"\n    },\n    {\n        \"id\": 1516,\n        \"name\": \"C 400 X\"\n    },\n    {\n        \"id\": 1517,\n        \"name\": \"C 600 Sport\"\n    },\n    {\n        \"id\": 1518,\n        \"name\": \"C 650 GT\"\n    },\n```",
+    "required_parameters": [
+      {
+        "name": "make",
+        "type": "string",
+        "description": "",
+        "default": "Yamaha"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "id": "int",
+      "name": "str"
+    },
+    "api_url": "https://motorcycle-specs-database.p.rapidapi.com/model/make-id/{make}/{year}"
+  },
+  {
+    "id": "82bf6462-fedc-4525-95e1-b0f6898bda6e",
+    "category_name": "Education",
+    "tool_name": "thefluentme",
+    "api_name": "Get all posts",
+    "api_description": "Get a paginated list of all posts.\n\nPlease provide the following parameters in the query string\n- **page**: The page number. If no value is provided, the default value of `1` will be applied.\n- **per_page**: Posts per page. If no value is provided, the default value of `10` will be applied.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "per_page",
+        "type": "NUMBER",
+        "description": "",
+        "default": "10"
+      },
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://thefluentme.p.rapidapi.com/post"
+  },
+  {
+    "id": "2ce1e4e7-23eb-499e-ac9a-668716daf9f7",
+    "category_name": "Education",
+    "tool_name": "thefluentme",
+    "api_name": "Get score by id",
+    "api_description": "Returns a score by `score_id`. You can get the `score_id` from the `Get all scores` endpoint. The scale parameter defines the maximum number of points for the recording, as well as each word. This parameter is not required. The default value of 100 will be applied if the parameter is not provided.",
+    "required_parameters": [
+      {
+        "name": "score_id",
+        "type": "string",
+        "description": "",
+        "default": "S38392182"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "scale",
+        "type": "NUMBER",
+        "description": "",
+        "default": "90"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://thefluentme.p.rapidapi.com/score/{score_id}"
+  },
+  {
+    "id": "08fbd927-c75b-464e-b3a9-b2963546955a",
+    "category_name": "Education",
+    "tool_name": "thefluentme",
+    "api_name": "Get all scores",
+    "api_description": "Get a paginated list of all scores.\n\nPlease provide the following parameters in the query string\n- **page**: The page number. If no value is provided, the default value of `1` will be applied.\n- **per_page**: Scores per page. If no value is provided, the default value of `10` will be applied.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "per_page",
+        "type": "NUMBER",
+        "description": "",
+        "default": "3"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://thefluentme.p.rapidapi.com/score"
+  },
+  {
+    "id": "7195ee38-f08f-4431-8c1e-ad2919d0e45c",
+    "category_name": "Science",
+    "tool_name": "CarbonSutra",
+    "api_name": "Vehicles Models",
+    "api_description": "List of Vehicle Models for a Make. A list of every make and model used by this API is at https://www.carbonsutra.com/data-vehicle-make-model.html",
+    "required_parameters": [
+      {
+        "name": "vehicle_make",
+        "type": "string",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str",
+      "status": "int"
+    },
+    "api_url": "https://carbonsutra1.p.rapidapi.com/vehicle_makes/{vehicle_make}/vehicle_models"
+  },
+  {
+    "id": "df72298a-0163-452a-bb3d-6bb6b54a15ff",
+    "category_name": "Science",
+    "tool_name": "CarbonFootprint",
+    "api_name": "AirQualityHealthIndex",
+    "api_description": "Return the official air quality health index (1 to 10) bases on key parameters.The national AQHI is based on three-hour average concentrations of ground-level ozone (O3), nitrogen dioxide (NO2), and fine particulate matter (PM2.5). O3 and NO2 are measured in parts per billion (ppb) while PM2.5 is \t measured in micrograms per cubic metre (ug/m3)",
+    "required_parameters": [
+      {
+        "name": "O3",
+        "type": "STRING",
+        "description": "The ground-level ozone (O3) in parts per billion (ppb).in ",
+        "default": "10"
+      },
+      {
+        "name": "NO2",
+        "type": "STRING",
+        "description": "The nitrogen dioxide (NO2),  in parts per billion (ppb)",
+        "default": "10"
+      },
+      {
+        "name": "PM",
+        "type": "STRING",
+        "description": "The fine particulate matter (PM2.5), PM2.5 is \t * measured in micrograms per cubic metre (ug/m3).",
+        "default": "10"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "airQualityHealthIndex": "int"
+    },
+    "api_url": "https://carbonfootprint1.p.rapidapi.com/airqualityhealthindex"
+  },
+  {
+    "id": "0d976dea-9c7d-4c49-9930-83748976e929",
+    "category_name": "Science",
+    "tool_name": "Al-Quran",
+    "api_name": "Get range of verses",
+    "api_description": "Responds with a collection of *Ayahs/Verses* in a specific *Chapter/Surah* along with original Arabic text, translation, transliteration and verse ID in JSON",
+    "required_parameters": [
+      {
+        "name": "chapterId",
+        "type": "NUMBER",
+        "description": "",
+        "default": "63"
+      },
+      {
+        "name": "range",
+        "type": "string",
+        "description": "",
+        "default": "1-4"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "1": {
+        "id": "float",
+        "content": "str",
+        "translation_eng": "str",
+        "transliteration": "str"
+      },
+      "2": {
+        "id": "float",
+        "content": "str",
+        "translation_eng": "str",
+        "transliteration": "str"
+      },
+      "3": {
+        "id": "float",
+        "content": "str",
+        "translation_eng": "str",
+        "transliteration": "str"
+      },
+      "4": {
+        "id": "float",
+        "content": "str",
+        "translation_eng": "str",
+        "transliteration": "str"
+      }
+    },
+    "api_url": "https://al-quran1.p.rapidapi.com/{chapterid}/{range}"
+  },
+  {
+    "id": "71952653-9fc0-46c2-9329-a93a375f7294",
+    "category_name": "Cryptography",
+    "tool_name": "Reddio NFT, Token and IPFS",
+    "api_name": "Aggregationbalanceofastark_keybycontractaddress",
+    "api_description": "The API aggregation balances by contract address, for previous API, each NFT have an asset_id, but in this API. NFT do not have asset_id when return, but has token id",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "stark_key",
+        "type": "STRING",
+        "description": "The stark_key you want to check balance",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "status": "str",
+      "error": "str",
+      "error_code": "int",
+      "data": "empty list"
+    },
+    "api_url": "https://reddio-nft-token-and-ipfs.p.rapidapi.com/v2/balances"
+  },
+  {
+    "id": "56cb2225-1a33-4544-b777-24c9c8c81ba6",
+    "category_name": "Cryptography",
+    "tool_name": "Reddio NFT, Token and IPFS",
+    "api_name": "Listcolloction'snftowners",
+    "api_description": "The api returns a collection's nft owners.\n\nThe response field description\n\n| **field** | **description** |\n| --- | --- |\n| contract_address | the contract_address of the collection |\n| token_id | the NFT token id |\n| owner | the owner of the NFT |\n| symbol | the NFT's symbol |\n| asset_id | the token's asset id |",
+    "required_parameters": [
+      {
+        "name": "contract_address",
+        "type": "STRING",
+        "description": "",
+        "default": "0x6b4f24fd500bedb945fc8b93882766bb5e7cf620"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "str",
+      "error": "str",
+      "error_code": "int",
+      "data": {
+        "list": [
+          {
+            "token_id": "str",
+            "contract_address": "str",
+            "owner": "str",
+            "symbol": "str",
+            "asset_id": "str",
+            "_list_length": 4
+          }
+        ],
+        "total": "int",
+        "current_page": "int",
+        "page_size": "int",
+        "total_page": "int"
+      }
+    },
+    "api_url": "https://reddio-nft-token-and-ipfs.p.rapidapi.com/v1/nfts/{contract_address}"
+  },
+  {
+    "id": "b516c6a2-e2a6-4eb8-86d1-d3597490cf79",
+    "category_name": "Cryptography",
+    "tool_name": "Reddio NFT, Token and IPFS",
+    "api_name": "Listfilesunderproject",
+    "api_description": "It will list files under the project, the response item like\n\n| **field** | **description** |\n| --- | --- |\n| cid | [Content Identifiers](https://docs.ipfs.tech/concepts/content-addressing/#what-is-a-cid) |\n| filename | The stored file name |\n| created_at | first create time |\n| filesize | file size(in byte) |\n| endpoints | the endpoints you can view the file |",
+    "required_parameters": [
+      {
+        "name": "project_uuid",
+        "type": "STRING",
+        "description": "",
+        "default": "eeda297e-4d35-4f11-915a-58e1a8873f17"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "str",
+      "data": "NoneType",
+      "error": "str",
+      "error_code": "int"
+    },
+    "api_url": "https://reddio-nft-token-and-ipfs.p.rapidapi.com/v1/project/{project_uuid}/storage"
+  },
+  {
+    "id": "8525801b-0275-42b9-8f16-4587261f37fe",
+    "category_name": "Monitoring",
+    "tool_name": "Similar Web",
+    "api_name": "get-analysis",
+    "api_description": "Get website traffic, key metrics, including engagement rate, traffic ranking, keyword ranking and traffic source.",
+    "required_parameters": [
+      {
+        "name": "domain",
+        "type": "STRING",
+        "description": "Any site or domain that you are familiar with. Ex : amazon.com",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://similar-web.p.rapidapi.com/get-analysis"
+  },
+  {
+    "id": "e208d233-bf8e-4248-aaff-37c1b164e90c",
+    "category_name": "Translation",
+    "tool_name": "Bidirectional Text Language Translation",
+    "api_name": "Translate",
+    "api_description": "takes source text, from language and to language and provides results in a very simple object.\nLanguages specified are in two character ISO codes.\nif lang_from is not specified it will be auto detected.",
+    "required_parameters": [
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "",
+        "default": "Hello how are you doing?"
+      },
+      {
+        "name": "lang_to",
+        "type": "STRING",
+        "description": "",
+        "default": "de"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "lang_from",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://bidirectional-text-language-translation.p.rapidapi.com/translate.php"
+  },
+  {
+    "id": "9aa930cb-5b29-43aa-807c-01131e568907",
+    "category_name": "Translation",
+    "tool_name": "Bidirectional Text Language Translation",
+    "api_name": "Detect Language",
+    "api_description": "If you want to detect language only and not translate you can provide the text parameter and the detected language will be provided in the results",
+    "required_parameters": [
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "",
+        "default": "I am fine thank you."
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://bidirectional-text-language-translation.p.rapidapi.com/detect.php"
+  },
+  {
+    "id": "d6889c7f-0f13-4fab-ae54-ce97aea8c376",
+    "category_name": "Translation",
+    "tool_name": "Webit Language",
+    "api_name": "Transliterate (Any to Latin)",
+    "api_description": "Transliteration endpoint provides you with transliteration of text from any language to Latin. Transliterate \"こんにちは\" to \"kon'nichiha\" with ease.",
+    "required_parameters": [
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "Transliterate any text to Latin.",
+        "default": "こんにちは。"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "str",
+      "data": {
+        "text": "str",
+        "transliteration": "str"
+      },
+      "message": "NoneType"
+    },
+    "api_url": "https://webit-language.p.rapidapi.com/transliterate"
+  },
+  {
+    "id": "127abc26-a2dc-46ae-9003-f11602917e16",
+    "category_name": "Tools",
+    "tool_name": "Endpoint Monitor Tool",
+    "api_name": "RemoveEndpointData",
+    "api_description": "Remove an endpoint from you user account by Id.\n\n(KNOWN ISSUE with RAPIDAPI)\nSuccessfully deleting an enpoint will result with a 200, however it MAY provide an ERROR stating \"src property must be a valid json object\". This is an issue with RAPIDAPI and not our API.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "endpointId",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "userId",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://endpoint-monitor-tool1.p.rapidapi.com/removeendpointdata"
+  },
+  {
+    "id": "27e589c3-8f3c-430a-bda7-fb41bb9ff03b",
+    "category_name": "Tools",
+    "tool_name": "PurgoMalum",
+    "api_name": "Remove profanity",
+    "api_description": "Calling the web service involves a simple HTTP GET request. The only two requirements for using PurgoMalum are the \"text\" parameter on the query string and the request-type name as part of the path in the request",
+    "required_parameters": [
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "Input text to be processed.",
+        "default": "This is some test input"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "add",
+        "type": "STRING",
+        "description": "A comma separated list of words to be added to the profanity list. Accepts letters, numbers, underscores (_) and commas (,). Accepts up to 10 words (or 200 maximum characters in length). The PurgoMalum filter is case-insensitive, so the case of you entry is not important.",
+        "default": ""
+      },
+      {
+        "name": "fill_text",
+        "type": "STRING",
+        "description": "Text used to replace any words matching the profanity list. Accepts letters, numbers, underscores (_) tildes (~), exclamation points (!), dashes/hyphens (-), equal signs (=), pipes (|), single quotes ('), double quotes (\"), asterisks (*), open and closed curly brackets ({ }), square brackets ([ ]) and parentheses (). Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.",
+        "default": ""
+      },
+      {
+        "name": "fill_char",
+        "type": "STRING",
+        "description": "Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "result": "str"
+    },
+    "api_url": "https://community-purgomalum.p.rapidapi.com/json"
+  },
+  {
+    "id": "aafa6d49-3182-4ec4-a90b-8907e9934e95",
+    "category_name": "Tools",
+    "tool_name": "Pagepeeker",
+    "api_name": "2. Thumbnail ready",
+    "api_description": "Poll this API until it returns that the image is available.  If available, you can download through endpoint 1.  Rendering an image depends largely on how fast a particular web page is loaded (and if it contains Flash).  Average waiting time is around 20 - 60 seconds",
+    "required_parameters": [
+      {
+        "name": "size",
+        "type": "STRING",
+        "description": "t = Tiny, 90 x 68 pixels;  s= Small, 120 x 90 pixels;  m = Medium, 200 x 150 pixels; l = Large, 400 x 300 pixels;  x = Extra large, 480 x 360 pixels",
+        "default": "m"
+      },
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "The URL to generate the thumbnail from",
+        "default": "http://www.mashape.com/"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://pagepeeker-pagepeeker.p.rapidapi.com/thumbs_ready.php"
+  },
+  {
+    "id": "b83c3a45-1e67-45c6-b264-febe4bc45bbf",
+    "category_name": "Text_Analysis",
+    "tool_name": "TextAPI",
+    "api_name": "Sentiment",
+    "api_description": "Get the sentiment of submitted text using VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media.",
+    "required_parameters": [
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "",
+        "default": "I really hate this!"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "neg": "float",
+      "neu": "float",
+      "pos": "float",
+      "compound": "float"
+    },
+    "api_url": "https://textapis.p.rapidapi.com/sentiment"
+  },
+  {
+    "id": "b2ae2476-5dd1-430f-b004-be66c2412833",
+    "category_name": "Text_Analysis",
+    "tool_name": "Mobile phone validation",
+    "api_name": "extract_fast",
+    "api_description": "Find and format/validate Phone/Cell numbers in given text.\n    \nCountry used to identify number format and highly recommended to set value in case you know it (as example your shop works only in US and clients have US cellnumbers).\n    \nUse 'country_auto' param in /extract endpoint case you can't provide Country and service will try to guess the country :)",
+    "required_parameters": [
+      {
+        "name": "country",
+        "type": "STRING",
+        "description": "Country Name or ISO2/ISO3 code",
+        "default": "usa"
+      },
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "Text containing phone(cell) numbers",
+        "default": "Real people with real answers in real time, 24/7.  1-800-266-8228, 1(800)266-8229"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "nums": [
+        {
+          "isValid": "bool",
+          "countryCode": "str",
+          "city": "str",
+          "msisdn": "str",
+          "national": "str",
+          "international": "str",
+          "E164": "str",
+          "carrier": "str",
+          "country": "str",
+          "number_type": "str",
+          "_list_length": 2
+        }
+      ],
+      "state": {
+        "state": "str"
+      }
+    },
+    "api_url": "https://mobile-phone-validation.p.rapidapi.com/extract_fast"
+  },
+  {
+    "id": "96c1df68-52d0-4bee-b734-73983b9c3bad",
+    "category_name": "Text_Analysis",
+    "tool_name": "Mobile phone validation",
+    "api_name": "extract",
+    "api_description": "Find and format/validate Phone/Cell numbers in given text.\n    \nCountry used to identify number format and highly recommended to set value in case you know it (as example your shop works only in US and clients have US cellnumbers).\n    \nUse 'country_auto' param in case you can't provide Country and service will try to guess the country :). Country recognition not very fast. Read docs to explain possible values.",
+    "required_parameters": [
+      {
+        "name": "text",
+        "type": "STRING",
+        "description": "Text containing phone(cell) numbers",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "country",
+        "type": "STRING",
+        "description": "Country Name or ISO2/ISO3 code",
+        "default": ""
+      },
+      {
+        "name": "country_auto",
+        "type": "NUMBER",
+        "description": "Try identify country if not provided. 0 - false, 1- fast mode, 2 - slow mode",
+        "default": 0
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "nums": "empty list",
+      "state": {
+        "state": "str",
+        "desc": "str"
+      }
+    },
+    "api_url": "https://mobile-phone-validation.p.rapidapi.com/extract_fast"
+  },
+  {
+    "id": "151e2c4f-24eb-4652-8efa-576f9aa62216",
+    "category_name": "Advertising",
+    "tool_name": "Free IP Geolocation",
+    "api_name": "Multi-language support",
+    "api_description": "Get an IP's country name in a different language. 5 languages are currently supported i.e. English - en, German - de, French - fr, Japanese - ja and Simplified Chinese -zh-CN. The response will contain an ASCII encoded version of the country name in the language you specify.",
+    "required_parameters": [
+      {
+        "name": "ip",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "language",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "api-key",
+        "type": "STRING",
+        "description": "Use 'test' for highly rate-limited functions. Get your own API-key here: https://ipdata.co/",
+        "default": "test"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://jkosgei-free-ip-geolocation-v1.p.rapidapi.com/{ip}/{language}"
+  },
+  {
+    "id": "cef3cb81-da30-4e58-a66a-046ab3a1593b",
+    "category_name": "Weather",
+    "tool_name": "World Weather Online API",
+    "api_name": "Marine History Weather API",
+    "api_description": "The Historical Marine Weather API method allows you to access marine data since 1st Jan, 2015 for a given longitude and latitude, as well as tide data. The Historical Marine Weather API returns weather elements such as temperature, precipitation (rainfall), weather description, weather icon, wind speed, Tide data, significant wave height, swell height, swell direction and swell period.",
+    "required_parameters": [
+      {
+        "name": "q",
+        "type": "STRING",
+        "description": "",
+        "default": "49.597, -8.19"
+      },
+      {
+        "name": "date",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "",
+        "default": "2020-05-15"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "enddate",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "",
+        "default": "2020-05-26"
+      },
+      {
+        "name": "format",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "tide",
+        "type": "STRING",
+        "description": "",
+        "default": "no"
+      },
+      {
+        "name": "tp",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "lang",
+        "type": "STRING",
+        "description": "",
+        "default": "en"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://world-weather-online-api1.p.rapidapi.com/past-marine.ashx"
+  },
+  {
+    "id": "9fdebdc2-7ffa-43c1-961e-73ca41501477",
+    "category_name": "Weather",
+    "tool_name": "World Weather Online API",
+    "api_name": "Search API",
+    "api_description": "The Location search API method takes a query value and returns information about the location, including area name, country, latitude/longitude, population, and a URL for the weather information.",
+    "required_parameters": [
+      {
+        "name": "q",
+        "type": "STRING",
+        "description": "",
+        "default": "london"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "format",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://world-weather-online-api1.p.rapidapi.com/search.ashx"
+  },
+  {
+    "id": "e848d66b-b265-42b3-9dff-40bc9850b66e",
+    "category_name": "Weather",
+    "tool_name": "World Weather Online API",
+    "api_name": "Local Weather API",
+    "api_description": "The Local Weather REST API (also called City and Town Weather API) method allows you to access current weather conditions, the next 14 days of accurate and reliable weather forecast, Air Quality Data, Weather Alerts and Monthly Climate Averages for over 4 million cities and towns worldwide. The Local Weather API returns weather elements such as temperature, precipitation (rainfall), weather description, weather icon, wind speed, etc.",
+    "required_parameters": [
+      {
+        "name": "q",
+        "type": "STRING",
+        "description": "",
+        "default": "40.73,-73"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "tp",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "aqi",
+        "type": "STRING",
+        "description": "",
+        "default": "yes"
+      },
+      {
+        "name": "format",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "lang",
+        "type": "STRING",
+        "description": "",
+        "default": "en"
+      },
+      {
+        "name": "alerts",
+        "type": "STRING",
+        "description": "",
+        "default": "no"
+      },
+      {
+        "name": "num_of_days",
+        "type": "NUMBER",
+        "description": "",
+        "default": "3"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://world-weather-online-api1.p.rapidapi.com/weather.ashx"
+  },
+  {
+    "id": "43bf4c70-5b52-459a-87c9-3c5055d53026",
+    "category_name": "News_Media",
+    "tool_name": "Sri Lanka News Api",
+    "api_name": "Get news from one news source",
+    "api_description": "Get news from one news source passing {source} paramter value and {page} value.Each news soure different number of news count in one page.\n\n\n**News Sources\n--Lankadeepa.lk\n--Deshaya.lk\n--Ada.lk\n--BBCSinhala.com\n--Mawbima.lk",
+    "required_parameters": [
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "",
+        "default": 1
+      },
+      {
+        "name": "source",
+        "type": "string",
+        "description": "",
+        "default": "Ada.lk"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "title": "str",
+      "url": "str",
+      "timestamp": "str",
+      "img": "str",
+      "description": "str",
+      "source": "str"
+    },
+    "api_url": "https://sri-lanka-news-api.p.rapidapi.com/news/sinhala/{source}/data/{page}"
+  },
+  {
+    "id": "8dec4f7d-c120-49be-8bc6-147d831fd269",
+    "category_name": "News_Media",
+    "tool_name": "News Network",
+    "api_name": "Get News",
+    "api_description": "Return list of news by selected region and category.\nVisit our [demo site](https://core-api.net/news/news.html)",
+    "required_parameters": [
+      {
+        "name": "category",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "region",
+        "type": "ENUM",
+        "description": "ae: United Arab Emirates\nar: Argentina\nat: Austria\nau: Australia\nbe: Belgium\nbg: Bulgaria\nbr: Brazil\nca: Canada\nch: Switzerland\ncn: China \nco: Colombia\ncu: Cuba\ncz:\tCzech Republic\nde: Germany\neg: Egypt\nfr: France\ngb: United Kingdom\ngr: Greece\nhk: Hong Kong\nhu: Hungray\nid: Indonesia\nie: Ireland\nil: Israel\nin: India\nit: Italy\njp: Japan\nkr: South Korea\nlt: Lithuania\nlv: Latvia\nma: Morocco\nmx: Mexico\nmy: Malaysia\nng: Nigeria\nnl: Netherlands\nno: Norway\nnz: New Zealand\nph: Philippines\npl: Poland\npt: Portugal\nro: Romania\nrs: Serbia\nru: Russia\nsa: Saudi Arabia\nse: Sweden\nsg: Singapore\nsi: Slovenia\nsk: Slovakia\nth: Thailand\ntr: Turkey\ntw: Taiwan\nua: Ukraine\nus: United States\nve: Venuzuela\nza: South Africa",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "": {}
+    },
+    "api_url": "https://news-network.p.rapidapi.com/get_news"
+  },
+  {
+    "id": "386531a5-4d37-489e-91e3-cdb2ad778f33",
+    "category_name": "News_Media",
+    "tool_name": "Instant Cameroon News",
+    "api_name": "Retrieve data",
+    "api_description": "Endpoint, which you use to retrieve the data you need. This endpoint can accept some parameters like page, search key and data range",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "rank",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "page",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "search",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://instant-cameroon-news.p.rapidapi.com/camerounnews"
+  },
+  {
+    "id": "320275cd-a843-44f2-8f8a-c8f4f9664a37",
+    "category_name": "Business_Software",
+    "tool_name": "test2",
+    "api_name": "/{orgCode}/cardart/{bins}",
+    "api_description": "Returns card art URLs by BINs. Different URLs can be defined for each BIN/range of BINs. User authentication is not required.",
+    "required_parameters": [
+      {
+        "name": "muid",
+        "type": "STRING",
+        "description": "User ID.",
+        "default": "string"
+      },
+      {
+        "name": "locale",
+        "type": "STRING",
+        "description": "Language used.",
+        "default": "string"
+      },
+      {
+        "name": "orgCode",
+        "type": "STRING",
+        "description": "The organization associated with the request.",
+        "default": "string"
+      },
+      {
+        "name": "msid",
+        "type": "STRING",
+        "description": "Session ID.",
+        "default": "string"
+      },
+      {
+        "name": "bins",
+        "type": "STRING",
+        "description": "One or more six-digit bin separated by commas.",
+        "default": "string"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://test2113.p.rapidapi.com/{orgcode}/cardart/{bins}"
+  },
+  {
+    "id": "d356e55c-fe6a-4325-9ca5-f7fc29c5017d",
+    "category_name": "Business_Software",
+    "tool_name": "Proxy List",
+    "api_name": "/proxy/get",
+    "api_description": "Returns the list of proxies based on the given parameters. The list is updated every 1 minute. API returns only working at the time of check proxies.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "type",
+        "type": "STRING",
+        "description": "Possible values: http, https, socks4, socks5",
+        "default": "http"
+      },
+      {
+        "name": "country",
+        "type": "STRING",
+        "description": "Use country code to filter data by country. Please check https://www.nationsonline.org/oneworld/country_code_list.htm for more information about country codes.",
+        "default": "US"
+      },
+      {
+        "name": "anonymity",
+        "type": "STRING",
+        "description": "Possible values: high, anonymous, transparent",
+        "default": "high"
+      }
+    ],
+    "method": "GET",
+    "template_response": {},
+    "api_url": "https://proxy-list2.p.rapidapi.com/proxy/get"
+  },
+  {
+    "id": "46f8889a-917a-4e09-b1af-a0b9a73bfd0c",
+    "category_name": "Events",
+    "tool_name": "Enoch Calendar",
+    "api_name": "Get Calendar Components",
+    "api_description": "Get the calendar components to build the current Hebrew month calendar from the supplied Hebrew month number, if supplied, or the first Hebrew month and, a supplied year, or this year",
+    "required_parameters": [
+      {
+        "name": "month",
+        "type": "NUMBER",
+        "description": "",
+        "default": "7"
+      },
+      {
+        "name": "year",
+        "type": "NUMBER",
+        "description": "",
+        "default": "2021"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "days": "int",
+      "month": "str",
+      "date": "int",
+      "day_milli": "int",
+      "eng_start_date": "str",
+      "eng_start_date_milli": "int",
+      "holydays": {
+        "days": {
+          "1": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "9": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "10": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "15": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "16": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "17": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "18": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "19": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "20": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "21": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          },
+          "22": {
+            "name": "str",
+            "scripture": "str",
+            "isSabbath": "bool"
+          }
+        }
+      },
+      "sabbathday": "str"
+    },
+    "api_url": "https://enoch-calendar.p.rapidapi.com/date-elements/{month}/{year}"
+  },
+  {
+    "id": "e0ea5a05-42d7-4043-b5c2-927d3077eec6",
+    "category_name": "Events",
+    "tool_name": "Enoch Calendar",
+    "api_name": "Is Holyday",
+    "api_description": "Get the Holyday, corresponding Scritpures and if this Holyday is also a Sabbath from the supplied date string or today's date. Or false in for all returned properties",
+    "required_parameters": [
+      {
+        "name": "datestring",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "",
+        "default": "2021-03-30"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "holyday": {
+        "name": "str",
+        "scripture": "str",
+        "isSabbath": "bool"
+      }
+    },
+    "api_url": "https://enoch-calendar.p.rapidapi.com/is-holyday/{datestring}"
+  },
+  {
+    "id": "16f581f9-d225-4df8-ac1e-eafb93030373",
+    "category_name": "Events",
+    "tool_name": "Working days",
+    "api_name": "/1.3/analyse",
+    "api_description": "Analyse a period (you provide a start_date and an end_date over a given calendar, we respond with the period analysis)",
+    "required_parameters": [
+      {
+        "name": "start_date",
+        "type": "STRING",
+        "description": "The start date (YYYY-MM-DD)",
+        "default": "2013-01-01"
+      },
+      {
+        "name": "end_date",
+        "type": "STRING",
+        "description": "The end date (YYYY-MM-DD)",
+        "default": "2013-12-31"
+      },
+      {
+        "name": "country_code",
+        "type": "STRING",
+        "description": "The ISO country code (2 letters).  See <a href=https://api.workingdays.org/api-countries >available countries & configurations</a>",
+        "default": "US"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "end_time",
+        "type": "STRING",
+        "description": "The end date's time (24 hours format, like 09:00 or 15:00, but not 3pm).If omitted, default value is 23:59.",
+        "default": "18:15"
+      },
+      {
+        "name": "start_time",
+        "type": "STRING",
+        "description": "The start date's time (24 hours format, like 09:00 or 15:00, but not 3pm).If omitted, default value is 00:00",
+        "default": "09:14"
+      },
+      {
+        "name": "profile_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "configuration",
+        "type": "STRING",
+        "description": "The name of the preset configuration to be used. See <a href=https://api.workingdays.org/api-countries >available countries & configurations</a>",
+        "default": "Federal holidays"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://working-days.p.rapidapi.com/1.3/analyse"
+  },
+  {
+    "id": "464b8f9f-c590-44a3-a897-c131f1df037f",
+    "category_name": "Cybersecurity",
+    "tool_name": "WebLasso",
+    "api_name": "Get Callback URL Status",
+    "api_description": "Check if a callback URL is able to receive scan results (ensure that the callback URL accepts POST requests).",
+    "required_parameters": [
+      {
+        "name": "callback_url",
+        "type": "STRING",
+        "description": "",
+        "default": "https://my-callback-url.com"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://weblasso.p.rapidapi.com/callback-status"
+  },
+  {
+    "id": "5db6df10-b096-4eb4-ac5e-9c050b2c439d",
+    "category_name": "Cybersecurity",
+    "tool_name": "WebLasso",
+    "api_name": "Get Scan ID",
+    "api_description": "Run a scan against a target URL and receive a scan ID to obtain scan results or check scan status at a later time.\n\nProvide an optional callback URL to receive scan results automatically once the scan is completed (ensure that the callback URL accepts POST requests)",
+    "required_parameters": [
+      {
+        "name": "target",
+        "type": "STRING",
+        "description": "",
+        "default": "tesla.com"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "callback_url",
+        "type": "STRING",
+        "description": "",
+        "default": "https://my-callback-url.com"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://weblasso.p.rapidapi.com/scan-id"
+  },
+  {
+    "id": "ec278b77-19fa-4257-9746-582d0c7a72bb",
+    "category_name": "Gaming",
+    "tool_name": "BingoAPI",
+    "api_name": "/us",
+    "api_description": "US game spec.\nReturns numbers between 1 and 75, randomized in 5 groups.\n\nIf you have a paid plan you can specify the number of cards to generate as a query parameter: `?cards=10`\nThis will return an array of array (the cards).\n\nPlease note that empty spaces are not returned as it is more portable for who don't need them. You are free to loop through the cards and add them at your wish.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "cards",
+        "type": "STRING",
+        "description": "",
+        "default": "2"
+      }
+    ],
+    "method": "GET",
+    "template_response": {},
+    "api_url": "https://bingoapi.p.rapidapi.com/us"
+  },
+  {
+    "id": "706f21ff-d8c2-4be5-816a-592182b837a2",
+    "category_name": "Gaming",
+    "tool_name": "Dota2 Heroes",
+    "api_name": "Heroes Data",
+    "api_description": "You can get heroes all heroes data name, image, videos, roles, abilities and talents with 20 languages.",
+    "required_parameters": [
+      {
+        "name": "language",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "description": "",
+        "default": "37"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "error": "str"
+    },
+    "api_url": "https://dota2-heroes.p.rapidapi.com/heroes/{language}/{is_id}"
+  },
+  {
+    "id": "7a29fb4c-0c02-4956-92e8-3842bce1225f",
+    "category_name": "Gaming",
+    "tool_name": "League Of Legends Galore",
+    "api_name": "Search For A Champion",
+    "api_description": "This will go through the list of champions and return a single champion or a list of champions depending on YOUR request!",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "releaseDate",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "name",
+        "type": "STRING",
+        "description": "",
+        "default": "zed"
+      },
+      {
+        "name": "resource",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "rp",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "blueEssence",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "attribute",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://league-of-legends-galore.p.rapidapi.com/api/selectchamp"
+  },
+  {
+    "id": "6a733d78-6139-4e27-9787-713cc1173040",
+    "category_name": "Location",
+    "tool_name": "Partenaires Mobilis",
+    "api_name": "Géolocaliser les partenaires",
+    "api_description": "Récupérer tous les partenaires, ou récupérer tous les partenaires dans un rayon donné autour d'un point donné :\n\n- **nearByLon**= {longitude du centre du cercle de la zone de recherche}\n- **nearByLat**= {latitude du centre du cercle de la zone de recherche}\n- **nearByDistance**= {rayon du cercle de la zone de recherche}",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "nearByDistance",
+        "type": "STRING",
+        "description": "",
+        "default": "2000"
+      },
+      {
+        "name": "nearByLon",
+        "type": "STRING",
+        "description": "",
+        "default": "166.448744"
+      },
+      {
+        "name": "nearByLat",
+        "type": "STRING",
+        "description": "",
+        "default": "-22.302828"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "type": "str",
+      "features": [
+        {
+          "type": "str",
+          "properties": {
+            "id": "int",
+            "nom": "str",
+            "ridet": "str",
+            "adresse": "str",
+            "quartier": "str",
+            "ville": "str",
+            "code_postal": "str",
+            "code_insee": "str",
+            "telephone": "str",
+            "url_gmaps": "str",
+            "url_fb": "str"
+          },
+          "geometry": {
+            "type": "str",
+            "coordinates": ["list of float with length 2"]
+          },
+          "_list_length": 2
+        }
+      ]
+    },
+    "api_url": "https://partenaires-mobilis.p.rapidapi.com/api/partenaires"
+  },
+  {
+    "id": "029f267f-1013-4f09-a85e-a0bb5d537794",
+    "category_name": "Location",
+    "tool_name": "Dubai Makani",
+    "api_name": "GetMakaniInfoFromCoordination",
+    "api_description": "When entering the coordinate (latitude & longitude) for certain\nlocation, this method/function will return building details (in case\nthis location falls inside a building), Makani details for the building\nand latitude & longitude for each Makani Number. Makani\nentrance(s) for the building can be plotted / pinned on an\nelectronic map by using the latitude & longitude for each Makani\nNumber.",
+    "required_parameters": [
+      {
+        "name": "latitude",
+        "type": "NUMBER",
+        "description": "",
+        "default": 25.264637
+      },
+      {
+        "name": "longitude",
+        "type": "NUMBER",
+        "description": "",
+        "default": 55.312168
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str",
+      "invalidHeaders": ["list of str with length 10"],
+      "invalidQueryParams": {}
+    },
+    "api_url": "https://dubai-makani.p.rapidapi.com/mi2tech/public/api/v1/makaniinfofromcoord"
+  },
+  {
+    "id": "3511412b-a010-43e4-9a6a-3edab735a484",
+    "category_name": "Location",
+    "tool_name": "Dubai Makani",
+    "api_name": "GetMakaniDetails",
+    "api_description": "When entering Makani Number for certain building entrance, this\nmethod/function will return building details and Makani details for\nthe building. In case Makani Number is available in more than\none emirate, this method/function will list the emirates and their\ncommunities",
+    "required_parameters": [
+      {
+        "name": "makanoNo",
+        "type": "string",
+        "description": "",
+        "default": "11480 71518"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "message": "str",
+      "invalidHeaders": ["list of str with length 10"],
+      "invalidQueryParams": {}
+    },
+    "api_url": "https://dubai-makani.p.rapidapi.com/mi2tech/public/api/v1/makanidetails/{makanono}"
+  },
+  {
+    "id": "89493d3b-7314-498b-b666-a5eec29b3a1e",
+    "category_name": "SMS",
+    "tool_name": "Phone verification",
+    "api_name": "Download Verification Results",
+    "api_description": "This endpoint returns the result file to be downloaded.\n\nPass name of file to be downloaded as path param. Result file name is always in format {filename}_output.xlsx Replace {filename} with the name returned from upload file call.\n\nTo download the file with angular follow sample code here\n\nhttps://stackoverflow.com/questions/40240796/angular-2-best-approach-to-use-filesaver-js",
+    "required_parameters": [
+      {
+        "name": "fileName",
+        "type": "STRING",
+        "description": "Name of file to be downloaded. Result file name is always in format {filename}_output.xlsx Replace {filename} with the name returned from upload file call.",
+        "default": "filename_output.xlsx"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://phone-verification3.p.rapidapi.com/api/v1/file/downloadfile/{filename}"
+  },
+  {
+    "id": "bf9975a4-441a-4afd-b5c0-2d5c3e2369a5",
+    "category_name": "SMS",
+    "tool_name": "Phone verification",
+    "api_name": "Verify Single Number",
+    "api_description": "Get the details of phone number supplied in the query param. Do not forget to pass Authorization header with your access_token. \n\nHint - access_token are returned as part of login api call.",
+    "required_parameters": [
+      {
+        "name": "number",
+        "type": "STRING",
+        "description": "Phone/mobile number to get details for.",
+        "default": "1234567891"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "name": "str",
+      "status": "int",
+      "detail": "str",
+      "additional": {
+        "validation": [
+          {
+            "location": ["list of str with length 1"],
+            "severity": "str",
+            "code": "str",
+            "message": "str",
+            "_list_length": 1
+          }
+        ],
+        "workspaceSlug": "str",
+        "projectSlug": "str",
+        "url": "str",
+        "dynamic": "bool",
+        "mediaTypes": ["list of str with length 1"]
+      }
+    },
+    "api_url": "https://phone-verification3.p.rapidapi.com/api/v1/validation/verifynumber"
+  },
+  {
+    "id": "09e1d6af-ade1-4bea-a2e8-ce49e547fff8",
+    "category_name": "Social",
+    "tool_name": "Socie",
+    "api_name": "Get Member",
+    "api_description": "Return a specific member. To do this, you need the `externalId` you gave the member when you created it or the `id` provided by Socie.",
+    "required_parameters": [
+      {
+        "name": "identifier",
+        "type": "string",
+        "description": "",
+        "default": "123456"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "key",
+        "type": "STRING",
+        "description": "",
+        "default": "externalId"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://socie.p.rapidapi.com/api/v1/members/{identifier}"
+  },
+  {
+    "id": "150f8c1e-b665-4e75-9a19-83eae874def5",
+    "category_name": "Social",
+    "tool_name": "Memes",
+    "api_name": "List of Memes",
+    "api_description": "Get List of Memes from genre\n\n**Default Type:**  top\n**Available Type**\n- Top\n- Hot\n- New\n\n**Default Genre: ** memes\n**Available Genres**\n- \"anime\"\n- \"dnd\"\n- \"history\"\n- \"historyani\"\n- \"memes\"\n- \"politics\"\n- \"science\"\n- \"lotr\"\n- \"ww2\"",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "genre",
+        "type": "STRING",
+        "description": "",
+        "default": "memes"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "description": "",
+        "default": "top"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "type": "str",
+      "genre": "str",
+      "memes_list": [
+        {
+          "title": "str",
+          "url": "str",
+          "_list_length": 18
+        }
+      ]
+    },
+    "api_url": "https://memes9.p.rapidapi.com/api/list"
+  },
+  {
+    "id": "235e9094-39c4-487c-abc3-34299fe2f3b6",
+    "category_name": "Social",
+    "tool_name": "Memes",
+    "api_name": "Random Meme",
+    "api_description": "Get Random Meme from genre\n\n**Default Type:**  top\n**Available Type**\n- Top\n- Hot\n- New\n\n**Default Genre: ** memes\n**Available Genres**\n- \"anime\"\n- \"dnd\"\n- \"history\"\n- \"historyani\"\n- \"memes\"\n- \"politics\"\n- \"science\"\n- \"lotr\"\n- \"ww2\"",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "genre",
+        "type": "STRING",
+        "description": "",
+        "default": "memes"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "description": "",
+        "default": "top"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "title": "str",
+      "url": "str",
+      "type": "str",
+      "genre": "str"
+    },
+    "api_url": "https://memes9.p.rapidapi.com/api/random"
+  },
+  {
+    "id": "eebdb2b4-bacf-4487-b2b9-a6e869550bea",
+    "category_name": "Search",
+    "tool_name": "Trends keywords in different regions",
+    "api_name": "Get Trend keyword",
+    "api_description": "This API provides the flexibility to filter trending keywords based on a particular date, ensuring that developers receive precise and relevant information. By specifying the date as '2023-05-16', developers can retrieve trending keywords specifically for that day, enabling them to analyze and incorporate the most recent trends into their applications.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "date",
+        "type": "STRING",
+        "description": "",
+        "default": "2023-05-18"
+      },
+      {
+        "name": "geo",
+        "type": "STRING",
+        "description": "",
+        "default": "US"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "geo": "str",
+      "date": "str",
+      "index": "int",
+      "formattedDate": "str",
+      "image": "str",
+      "articles": [
+        {
+          "title": "str",
+          "timeAgo": "str",
+          "source": "str",
+          "image": {
+            "newsUrl": "str",
+            "source": "str",
+            "imageUrl": "str"
+          },
+          "url": "str",
+          "snippet": "str",
+          "_list_length": 6
+        }
+      ]
+    },
+    "api_url": "https://trends-keywords-in-different-regions.p.rapidapi.com/daily"
+  },
+  {
+    "id": "6238ce0a-664f-4cef-b73e-0a9cb88a5f94",
+    "category_name": "Search",
+    "tool_name": "Webit Image Search",
+    "api_name": "Reverse (Search by Image)",
+    "api_description": "Reverse search by Image between billion of images.\n\nThis endpoint supports \"URL\" parameter only. For \"image\" file upload, use POST endpoint.",
+    "required_parameters": [
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "The URL to search images by. A default URL from Wikipedia containing the following pizza has been used.\n\n![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/260px-Eq_it-na_pizza-margherita_sep2005_sml.jpg)",
+        "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/260px-Eq_it-na_pizza-margherita_sep2005_sml.jpg"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "number",
+        "type": "NUMBER",
+        "description": "",
+        "default": "10"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "status": "str",
+      "data": {
+        "results": [
+          {
+            "title": "NoneType",
+            "url": "NoneType",
+            "id": "NoneType",
+            "confidence": "float",
+            "_list_length": 10
+          }
+        ],
+        "results_count": "int",
+        "number": "int",
+        "offset": "int"
+      },
+      "message": "NoneType"
+    },
+    "api_url": "https://webit-image-search.p.rapidapi.com/reverse"
+  },
+  {
+    "id": "98a6933d-5465-4b7b-a6c6-0034a68a1eab",
+    "category_name": "Search",
+    "tool_name": "Webit Image Search",
+    "api_name": "Search",
+    "api_description": "Webit Image Search API provides you a powerful endpoint to search billions of images from the world wide web featuring rating, reverse search by image and multi-lingual capabilities.",
+    "required_parameters": [
+      {
+        "name": "q",
+        "type": "STRING",
+        "description": "",
+        "default": "pizza"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "number",
+        "type": "NUMBER",
+        "description": "",
+        "default": "10"
+      },
+      {
+        "name": "search_filter",
+        "type": "ENUM",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "status": "str",
+      "data": {
+        "results": [
+          {
+            "title": "NoneType",
+            "url": "NoneType",
+            "id": "NoneType",
+            "confidence": "float",
+            "_list_length": 10
+          }
+        ],
+        "results_count": "int",
+        "number": "int",
+        "offset": "int"
+      },
+      "message": "NoneType"
+    },
+    "api_url": "https://webit-image-search.p.rapidapi.com/search"
+  },
+  {
+    "id": "1cd88f84-2dcf-4e29-bde4-1d19d4eee8ed",
+    "category_name": "Devices",
+    "tool_name": "Ubidots",
+    "api_name": "GET /datasources/{datasource_id}/variables",
+    "api_description": "This resource list the variables of a specified data source, showing all the fields of the variables.",
+    "required_parameters": [
+      {
+        "name": "datasource_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "code": "int",
+      "message": "str"
+    },
+    "api_url": "https://community-ubidots.p.rapidapi.com/datasources/{datasource_id}/variables"
+  },
+  {
+    "id": "3858f857-a6c6-46f0-aa40-dac2e0555b0b",
+    "category_name": "Devices",
+    "tool_name": "Ubidots",
+    "api_name": "GET /variables/{variable_id}",
+    "api_description": "This resource returns a variable and its details. It shows additional fields than the ones required during the creation of the variable:  last_value: Shows the last value written to the variable.",
+    "required_parameters": [
+      {
+        "name": "variable_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "code": "int",
+      "message": "str"
+    },
+    "api_url": "https://community-ubidots.p.rapidapi.com/variables/{variable_id}"
+  },
+  {
+    "id": "2cdd1e60-8681-4862-8118-5bdd9e18135f",
+    "category_name": "Devices",
+    "tool_name": "Ubidots",
+    "api_name": "GET /datasources/{datasource_id}",
+    "api_description": "This resource obtains an existing data source and its details. Also, it returns additional fields besides the ones required during the creation of the data source:  number_of_variables: Shows the number of variables contained by the data source. last_activity: Returns the date of the last activity",
+    "required_parameters": [
+      {
+        "name": "datasource_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "code": "int",
+      "message": "str"
+    },
+    "api_url": "https://community-ubidots.p.rapidapi.com/datasources/{datasource_id}/variables"
+  },
+  {
+    "id": "755583aa-7e77-4f12-bd6a-31f635a1ba43",
+    "category_name": "Visual_Recognition",
+    "tool_name": "Everypixel Image Recognition",
+    "api_name": "/keywords",
+    "api_description": "By sending an image to this method you can get a list of suggested keywords. You may specify a number of returned words or a threshold of its minimum score. Just provide num_keywords or threshold parameter to this method.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "content",
+        "type": "STRING",
+        "description": "You can also send an actual image files for auto-tagging.",
+        "default": ""
+      },
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "Image URL to perform auto-tagging on.",
+        "default": "http://image.everypixel.com/2014.12/67439828186edc79b9be81a4dedea8b03c09a12825b_b.jpg"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "keywords": [
+        {
+          "keyword": "str",
+          "score": "float",
+          "_list_length": 14
+        }
+      ],
+      "status": "str"
+    },
+    "api_url": "https://everypixel-api.p.rapidapi.com/keywords"
+  },
+  {
+    "id": "c7d72340-437b-4fa4-b65a-7bf0ee69cb7e",
+    "category_name": "Visual_Recognition",
+    "tool_name": "Everypixel Image Recognition",
+    "api_name": "/quality",
+    "api_description": "This method allows you to get the quality score for your photo. This service doesn't measure how cool or beautiful a person or an object on a photo may look. It cares only about technical parts like brightness, contrast, noise and so on. The service is not dedicated for scoring historical photos, illustrations or 3D visualizations.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "content",
+        "type": "STRING",
+        "description": "You can also send an actual image files for scoring.",
+        "default": ""
+      },
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "Image URL to perform scoring on.",
+        "default": "http://image.everypixel.com/2014.12/67439828186edc79b9be81a4dedea8b03c09a12825b_b.jpg"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "quality": {
+        "score": "float"
+      },
+      "status": "str"
+    },
+    "api_url": "https://everypixel-api.p.rapidapi.com/quality_ugc"
+  },
+  {
+    "id": "3f6bb434-703f-44b8-b9a6-1ab37b4f3be8",
+    "category_name": "Transportation",
+    "tool_name": "Car API",
+    "api_name": "Years",
+    "api_description": "For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"make\", \"op\": \"in\", \"val\": [\"Scion\", \"Tesla\"]}]`\n\nAllowed operators are: `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.\n\nAllowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "make_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "make",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "year",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "json",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "make_model_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "model",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "trim",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "exception": "str",
+      "message": "str",
+      "url": "str",
+      "code": "int"
+    },
+    "api_url": "https://car-api2.p.rapidapi.com/api/years"
+  },
+  {
+    "id": "57c2d533-09c5-4b25-9f84-94743d4d0bd2",
+    "category_name": "Transportation",
+    "tool_name": "Car API",
+    "api_name": "VIN Decoder",
+    "api_description": "Decodes Vehicle Identification Numbers. The result will include a list of specifications in the specs property and a list of all possible trims matching the VIN in the trims property.",
+    "required_parameters": [
+      {
+        "name": "vin",
+        "type": "string",
+        "description": "",
+        "default": "KNDJ23AU4N7154467"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": "{\"year\": \"int\", \"make\": \"str\", \"model\": \"str\", \"trim\": \"str\", \"specs\": {\"suggested_vin\": \"str\", \"possible_values\": \"str\", \"vehicle_descriptor\": \"str\", \"destination_market\": \"NoneType\", \"manufacturer_name\": \"str\", \"plant_city\": \"str\", \"series\": \"NoneType\", \"vehicle_type\": \"str\", \"plant_country\": \"str\", \"plant_company_name\": \"NoneType\", \"plant_state\": \"NoneType\", \"trim2\": \"NoneType\", \"series2\": \"str\", \"note\": \"NoneType\", \"base_price\": \"NoneType\", \"non_land_use\": \"NoneType\", \"body_class\": \"str\", \"doors\": \"NoneType\", \"windows\": \"NoneType\", \"wheel_base_type\": \"NoneType\", \"track_width_inches\": \"NoneType\", \"gross_vehicle_weight_rating_from\": \"str\", \"bed_length_inches\": \"NoneType\", \"curb_weight_pounds\": \"NoneType\", \"wheel_base_inches_from\": \"NoneType\", \"wheel_base_inches_to\": \"NoneType\", \"gross_combination_weight_rating_from\": \"NoneType\", \"gross_combination_weight_rating_to\": \"NoneType\", \"gross_vehicle_weight_rating_to\": \"NoneType\", \"bed_type\": \"NoneType\", \"cab_type\": \"NoneType\", \"trailer_type",
+    "api_url": "https://car-api2.p.rapidapi.com/api/vin/{vin}"
+  },
+  {
+    "id": "9a585b86-8993-49c2-bfb9-53fe767e3ea4",
+    "category_name": "Transportation",
+    "tool_name": "Waze",
+    "api_name": "Alerts and Jams",
+    "api_description": "Get real-time alerts and jams from Waze in a geographic rectangular area defined by bottom-left and top-right latitude, longitude pairs.",
+    "required_parameters": [
+      {
+        "name": "top_right",
+        "type": "STRING",
+        "description": "Top-right corner of the geographic rectangular area for which to get alerts and traffic jams. Specified as latitude, longitude pair.",
+        "default": "40.772787404902594,-73.76818084716798"
+      },
+      {
+        "name": "bottom_left",
+        "type": "STRING",
+        "description": "Bottom-left corner of the geographic rectangular area for which to get alerts and traffic jams. Specified as latitude, longitude pair.",
+        "default": "40.66615391742187,-74.13732147216798"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "max_alerts",
+        "type": "NUMBER",
+        "description": "Maximum number of alerts to fetch (to avoid fetching alerts set it to `0`).\nDefault: `20`",
+        "default": "20"
+      },
+      {
+        "name": "max_jams",
+        "type": "NUMBER",
+        "description": "Maximum number of traffic jams to fetch (to avoid fetching traffic jams, set it to `0`).\nDefault: `20`",
+        "default": "20"
+      }
+    ],
+    "method": "GET",
+    "template_response": "{\"status\": \"str\", \"request_id\": \"str\", \"data\": {\"alerts\": [{\"alert_id\": \"str\", \"type\": \"str\", \"subtype\": \"str\", \"reported_by\": \"str\", \"description\": \"str\", \"image\": \"NoneType\", \"publish_datetime_utc\": \"str\", \"country\": \"str\", \"city\": \"str\", \"street\": \"str\", \"latitude\": \"float\", \"longitude\": \"float\", \"num_thumbs_up\": \"int\", \"alert_reliability\": \"int\", \"alert_confidence\": \"int\", \"near_by\": \"NoneType\", \"comments\": \"empty list\", \"num_comments\": \"int\", \"_list_length\": 21}], \"jams\": [{\"jam_id\": \"str\", \"type\": \"str\", \"level\": \"int\", \"severity\": \"int\", \"line_coordinates\": [{\"lat\": \"float\", \"lon\": \"float\", \"_list_length\": 4}], \"start_location\": \"NoneType\", \"end_location\": \"NoneType\", \"speed_kmh\": \"float\", \"length_meters\": \"int\", \"delay_seconds\": \"int\", \"block_alert_id\": \"NoneType\", \"block_alert_type\": \"NoneType\", \"block_alert_description\": \"NoneType\", \"block_alert_update_datetime_utc\": \"NoneType\", \"block_start_datetime_utc\": \"NoneType\", \"publish_datetime_utc\": \"str\", \"update_datetime_utc\": \"str",
+    "api_url": "https://waze.p.rapidapi.com/alerts-and-jams"
+  },
+  {
+    "id": "8b2304d2-6fca-49f5-b076-282786dadaca",
+    "category_name": "Other",
+    "tool_name": "Quran Com",
+    "api_name": "translation info by id",
+    "api_description": "Get information of a specific translation. Could include detail about the author, publishing date and publisher etc.",
+    "required_parameters": [
+      {
+        "name": "translation_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "int",
+      "error": "str"
+    },
+    "api_url": "https://quran-com.p.rapidapi.com/resources/translations/{translation_id}/info"
+  },
+  {
+    "id": "38cf4fc9-4def-4394-ac2e-1389bd727903",
+    "category_name": "Other",
+    "tool_name": "Quran Com",
+    "api_name": "uthmani text",
+    "api_description": "Get Uthmani script of ayah. Use query strings to filter results, leave all query string blank if you want to fetch Uthmani script of whole Quran.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "verse_key",
+        "type": "STRING",
+        "description": "If you want to get Uthmani script of a specific ayah.",
+        "default": ""
+      },
+      {
+        "name": "page_number",
+        "type": "NUMBER",
+        "description": "If you want to get Uthmani script of a Madani Muhsaf page",
+        "default": ""
+      },
+      {
+        "name": "rub_el_hizb_number",
+        "type": "NUMBER",
+        "description": "If you want to get Uthmani script of a specific Rub el Hizb.",
+        "default": ""
+      },
+      {
+        "name": "hizb_number",
+        "type": "NUMBER",
+        "description": "If you want to get Uthmani script of a specific hizb.",
+        "default": ""
+      },
+      {
+        "name": "chapter_number",
+        "type": "NUMBER",
+        "description": "If you want to get Uthmani script of a specific surah.",
+        "default": ""
+      },
+      {
+        "name": "juz_number",
+        "type": "NUMBER",
+        "description": "If you want to get Uthmani script of a specific juz.",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "verses": [
+        {
+          "id": "int",
+          "verse_key": "str",
+          "text_uthmani": "str",
+          "_list_length": 6236
+        }
+      ],
+      "meta": {
+        "filters": {}
+      }
+    },
+    "api_url": "https://quran-com.p.rapidapi.com/quran/verses/uthmani"
+  },
+  {
+    "id": "d29e877f-87dd-4466-997d-cf398968a5a2",
+    "category_name": "Other",
+    "tool_name": "SurveyMethods",
+    "api_name": "Responses Summary",
+    "api_description": "Using this API call you can retrieve information such as custom field labels & values, date on which  a response was started and when was it completed, the survey response method (email/web), the  email address of the respondent in case of an email response, IP address and the response code  for each individual response of your survey.",
+    "required_parameters": [
+      {
+        "name": "login_id",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "api_key",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "survey_code",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "status": "str"
+    },
+    "api_url": "https://community-survey-methods.p.rapidapi.com/{login_id}/{api_key}/responses/{survey_code}/summary"
+  },
+  {
+    "id": "7f716b7a-8aa7-4f99-8924-83f5f4c0f9d4",
+    "category_name": "Entertainment",
+    "tool_name": "4D Results",
+    "api_name": "Get Past Results (1 year)",
+    "api_description": "Return all company 4D Results within a specific date range.\n(Up to 1 year data and only available for ULTRA PLAN subscriber)",
+    "required_parameters": [
+      {
+        "name": "start",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "",
+        "default": "2020-01-01"
+      },
+      {
+        "name": "end",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "",
+        "default": "2020-03-31"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://4d-results.p.rapidapi.com/get_4d_result_range/{start}/{end}"
+  },
+  {
+    "id": "8607c513-2bfd-489a-b276-35933601fd0d",
+    "category_name": "Entertainment",
+    "tool_name": "4D Results",
+    "api_name": "Get Past Results (10 years)",
+    "api_description": "Return all company 4D Results within a specific date range.\n(Up to 10 year data and only available for MEGA PLAN subscriber)",
+    "required_parameters": [
+      {
+        "name": "start",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "Start date",
+        "default": "2010-01-01"
+      },
+      {
+        "name": "end",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "End date",
+        "default": "2010-03-31"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://4d-results.p.rapidapi.com/get_4d_past_results/{start}/{end}"
+  },
+  {
+    "id": "32caf2ed-75ea-474e-9269-13c3e97c9a1f",
+    "category_name": "Entertainment",
+    "tool_name": "HAPI Books",
+    "api_name": "Get Book Information by Book Id",
+    "api_description": "Giving its Id, this endpoint returns a lot of information about that book, such as Name, Published Date, Authors, Synopsis, and many more.",
+    "required_parameters": [
+      {
+        "name": "book_Id",
+        "type": "string",
+        "description": "",
+        "default": "56597885"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://hapi-books.p.rapidapi.com/book/{book_id}"
+  },
+  {
+    "id": "6621d9b9-fbb2-4190-af6e-89cb2f49914a",
+    "category_name": "Payments",
+    "tool_name": "NOWPayments",
+    "api_name": "3.Getestimatedprice",
+    "api_description": "This is a method for calculating the approximate price in cryptocurrency for a given value in Fiat currency. You will need to provide the initial cost in the Fiat currency (amount, currency_from) and the necessary cryptocurrency (currency_to)\nCurrently following fiat currencies are available: usd, eur, nzd, brl, gbp.",
+    "required_parameters": [
+      {
+        "name": "currency_to",
+        "type": "STRING",
+        "description": "",
+        "default": "btc"
+      },
+      {
+        "name": "currency_from",
+        "type": "STRING",
+        "description": "",
+        "default": "usd"
+      },
+      {
+        "name": "amount",
+        "type": "NUMBER",
+        "description": "",
+        "default": 3999.5
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://nowpayments.p.rapidapi.com/v1/estimate"
+  },
+  {
+    "id": "59855e29-003b-4ef4-be6a-cd6519e11797",
+    "category_name": "Payments",
+    "tool_name": "NOWPayments",
+    "api_name": "6.Gettheminimumpaymentamount",
+    "api_description": "Get the minimum payment amount for a specific pair.\n\nYou can provide both currencies in the pair or just currency_from, and we will calculate the minimum payment amount for currency_from and currency which you have specified as the outcome in the Store Settings.\n\nIn the case of several outcome wallets we will calculate the minimum amount in the same way we route your payment to a specific wallet.",
+    "required_parameters": [
+      {
+        "name": "currency_from",
+        "type": "STRING",
+        "description": "",
+        "default": "eth"
+      },
+      {
+        "name": "currency_to",
+        "type": "STRING",
+        "description": "",
+        "default": "trx"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://nowpayments.p.rapidapi.com/v1/min-amount"
+  },
+  {
+    "id": "f0d24a83-a505-4730-9727-ff51a7c801ab",
+    "category_name": "Food",
+    "tool_name": "Ordering",
+    "api_name": "getList",
+    "api_description": "Get paginated list of orders. This endpoint is compatible with React AdminOnRest framework to provide DataSource.",
+    "required_parameters": [
+      {
+        "name": "filter",
+        "type": "OBJECT",
+        "description": "",
+        "default": "{\n  \"_sort\": [],\n  \"_order\": [\n    \"ASC\"\n  ],\n  \"_start\": 0,\n  \"_end\": 0,\n  \"id\": \"\",\n  \"extId\": \"\",\n  \"status\": \"\",\n  \"type\": \"DELIVERY\",\n  \"completed\": true,\n  \"closed\": true,\n  \"phone\": \"\",\n  \"mail\": \"\",\n  \"createdFrom\": \"\",\n  \"createdTo\": \"\",\n  \"completedFrom\": \"\",\n  \"completedTo\": \"\",\n  \"venue\": \"\"\n}"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "error": "str",
+      "error_description": "str"
+    },
+    "api_url": "https://ordering1.p.rapidapi.com/ordering-api/api/orders"
+  },
+  {
+    "id": "f8cfa9a8-0d56-4611-8622-bfcacbc92e08",
+    "category_name": "Food",
+    "tool_name": "Food Ingredient Measurement Conversion",
+    "api_name": "Convert Ingredient",
+    "api_description": "1. Convert between Weight and Volume, \n     e.g., 1 cup of flour is 120 gram, or  1 ounce of butter is 2 tablespoon\n\n2. Convert in the same category, e.g., 1 cup = 16 tablespoon = 48 teaspoon;  1 ounce = 28.35 gram; or 0°C = 32°F, 100°C = 212°F; or",
+    "required_parameters": [
+      {
+        "name": "value",
+        "type": "NUMBER",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "from",
+        "type": "STRING",
+        "description": "",
+        "default": "cup (US)"
+      },
+      {
+        "name": "ingredient",
+        "type": "STRING",
+        "description": "",
+        "default": "flour (all purpose)"
+      },
+      {
+        "name": "to",
+        "type": "STRING",
+        "description": "",
+        "default": "gram"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "numDigit",
+        "type": "NUMBER",
+        "description": "The number of digits of result. If not provided, default 2.",
+        "default": "3"
+      },
+      {
+        "name": "brand",
+        "type": "STRING",
+        "description": "if not provided, default \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"generic\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
+        "default": "bob's red mill"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "result": "str",
+      "abbr": "str"
+    },
+    "api_url": "https://food-ingredient-measurement-conversion.p.rapidapi.com/convert"
+  },
+  {
+    "id": "20236227-2dde-4d5a-adad-a3c78c94650d",
+    "category_name": "Food",
+    "tool_name": "Keto Diet",
+    "api_name": "Filter - Protein",
+    "api_description": "Gives keto recipes within given range of protein value.\nprotein_in_grams__lt = Less than\nprotein_in_grams__gt = Greater than",
+    "required_parameters": [
+      {
+        "name": "protein_in_grams__lt",
+        "type": "NUMBER",
+        "description": "",
+        "default": "15"
+      },
+      {
+        "name": "protein_in_grams__gt",
+        "type": "NUMBER",
+        "description": "",
+        "default": "5"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": "{\"id\": \"int\", \"recipe\": \"str\", \"category\": {\"id\": \"int\", \"category\": \"str\", \"thumbnail\": \"str\"}, \"prep_time_in_minutes\": \"int\", \"prep_time_note\": \"NoneType\", \"cook_time_in_minutes\": \"int\", \"cook_time_note\": \"NoneType\", \"difficulty\": \"str\", \"serving\": \"int\", \"measurement_1\": \"float\", \"measurement_2\": \"float\", \"measurement_3\": \"float\", \"measurement_4\": \"float\", \"measurement_5\": \"float\", \"measurement_6\": \"NoneType\", \"measurement_7\": \"NoneType\", \"measurement_8\": \"NoneType\", \"measurement_9\": \"NoneType\", \"measurement_10\": \"NoneType\", \"ingredient_1\": \"str\", \"ingredient_2\": \"str\", \"ingredient_3\": \"str\", \"ingredient_4\": \"str\", \"ingredient_5\": \"str\", \"ingredient_6\": \"NoneType\", \"ingredient_7\": \"NoneType\", \"ingredient_8\": \"NoneType\", \"ingredient_9\": \"NoneType\", \"ingredient_10\": \"NoneType\", \"directions_step_1\": \"str\", \"directions_step_2\": \"str\", \"directions_step_3\": \"str\", \"directions_step_4\": \"str\", \"directions_step_5\": \"str\", \"directions_step_6\": \"NoneType\", \"directions_step_7\": \"NoneType\", \"dir",
+    "api_url": "https://keto-diet.p.rapidapi.com/"
+  },
+  {
+    "id": "7cbd8673-c101-41db-a070-4ba626752161",
+    "category_name": "Energy",
+    "tool_name": "Regionalkonzept Strom Herkunft",
+    "api_name": "Strommix",
+    "api_description": "Resultierender Strommix nach Anwendung der regionalen Ökostromerzeugung im Gebiet einer Postleitzahl.",
+    "required_parameters": [
+      {
+        "name": "postleitzahl",
+        "type": "STRING",
+        "description": "",
+        "default": "69168"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://regionalkonzept-strom-herkunft.p.rapidapi.com/strommix"
+  },
+  {
+    "id": "4bf37685-382a-44f3-ac1a-b6610a7ef1ca",
+    "category_name": "Commerce",
+    "tool_name": "sandbox mktplace eu  01 products",
+    "api_name": "listofattributeandvalueoptions",
+    "api_description": "API Instructions: https://www.mktplace.eu/api-instructions-i-32.html\n\nSell on mktplace.eu: https://www.mktplace.eu/sell-on-mktplace-i-25.html",
+    "required_parameters": [
+      {
+        "name": "action",
+        "type": "STRING",
+        "description": "",
+        "default": "list_products_options_values"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "code": "str",
+      "message": "str"
+    },
+    "api_url": "https://sandbox-mktplace-eu-01-products.p.rapidapi.com/api_seller_products_others.php"
+  },
+  {
+    "id": "d538e1e1-b922-4303-8562-e4a60fbe222a",
+    "category_name": "Commerce",
+    "tool_name": "sandbox mktplace eu  01 products",
+    "api_name": "listcategoriesandsub-categories",
+    "api_description": "API Instructions:  https://www.mktplace.eu/api-instructions-i-32.html\n\nSell on mktplace.eu: https://www.mktplace.eu/sell-on-mktplace-i-25.html",
+    "required_parameters": [
+      {
+        "name": "action",
+        "type": "STRING",
+        "description": "",
+        "default": "categories_list"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "code": "str",
+      "message": "str"
+    },
+    "api_url": "https://sandbox-mktplace-eu-01-products.p.rapidapi.com/api_seller_categories.php"
+  },
+  {
+    "id": "bf5d8182-a205-4407-a54d-7d437c6e2282",
+    "category_name": "Commerce",
+    "tool_name": "sandbox ecombr com - 04 orders",
+    "api_name": "listoforders",
+    "api_description": "API Instructions: https://www.ecombr.com/instrucoes-api-i-28.html\n\nSell on ecombr.com marketplace: https://www.ecombr.com/vender-no-ecombr-i-26.html",
+    "required_parameters": [
+      {
+        "name": "status",
+        "type": "STRING",
+        "description": "",
+        "default": ""
+      },
+      {
+        "name": "action",
+        "type": "STRING",
+        "description": "",
+        "default": "orders_list"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "code": "str",
+      "message": "str"
+    },
+    "api_url": "https://sandbox-ecombr-com-04-orders.p.rapidapi.com/api_seller_orders.php"
+  },
+  {
+    "id": "dc36a990-63d7-43bf-a563-cdb25f012aa5",
+    "category_name": "Jobs",
+    "tool_name": "AI Resume Generator",
+    "api_name": "Generate Document: Cover Letter",
+    "api_description": "Endpoint that will generate a large text response containing a Cover Letter document using the provided information",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "jobDescription",
+        "type": "STRING",
+        "description": "",
+        "default": "Example Co. is looking for a Full Stack Web Developer to maintain and improve our custom web application. The solutions will require both frontend and backend skills. Our web application runs on a LEMP stack. LEMP stack experience is a bonus, but not required."
+      },
+      {
+        "name": "degree",
+        "type": "STRING",
+        "description": "",
+        "default": "Information Systems"
+      },
+      {
+        "name": "university",
+        "type": "STRING",
+        "description": "",
+        "default": "Michigan State University"
+      },
+      {
+        "name": "skills",
+        "type": "STRING",
+        "description": "",
+        "default": "Networking, Web Development"
+      },
+      {
+        "name": "jobTitle",
+        "type": "STRING",
+        "description": "",
+        "default": "Full Stack Web Developer"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://ai-resume-generator.p.rapidapi.com/documents/generatecoverletter"
+  },
+  {
+    "id": "672a14e5-c0a9-4fbc-ad8d-10b56d7cfc9f",
+    "category_name": "Jobs",
+    "tool_name": "AI Resume Generator",
+    "api_name": "Generate Document: Resume",
+    "api_description": "Endpoint that will generate a large text response containing a Resume document using the provided information",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "degree",
+        "type": "STRING",
+        "description": "",
+        "default": "Information Systems"
+      },
+      {
+        "name": "skills",
+        "type": "STRING",
+        "description": "",
+        "default": "Networking, Web Development"
+      },
+      {
+        "name": "university",
+        "type": "STRING",
+        "description": "",
+        "default": "Michigan State University"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://ai-resume-generator.p.rapidapi.com/documents/generateresume"
+  },
+  {
+    "id": "4637dee8-038f-4389-b786-ed9c1a16cd28",
+    "category_name": "Medical",
+    "tool_name": "23andMe",
+    "api_name": "traits",
+    "api_description": "Our analysis for each profile for these traits (starred reports). trait is a value in possible_traits, or null if the profile's not analyzed at those markers.",
+    "required_parameters": [
+      {
+        "name": "profile_id",
+        "type": "STRING",
+        "description": "profile_id",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://23andme-23andme.p.rapidapi.com/traits/{profile_id}/"
+  },
+  {
+    "id": "4bc57bb6-8469-4d1c-a8c9-0a76d89c1c5d",
+    "category_name": "Medical",
+    "tool_name": "23andMe",
+    "api_name": "neanderthal",
+    "api_description": "Estimated genome-wide proportion of Neanderthal ancestry for the user's profile. Most users have between 0.01 and 0.04 Neanderthal ancestry -- read a full explanation of the science. proportion is -1 for un-genotyped (or as-of-yet uncomputed) profiles.",
+    "required_parameters": [
+      {
+        "name": "profile_id",
+        "type": "STRING",
+        "description": "profile_id",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://23andme-23andme.p.rapidapi.com/neanderthal/{profile_id}/"
+  },
+  {
+    "id": "8cdcb225-7734-4ee2-bedf-a9442e379ec7",
+    "category_name": "Medical",
+    "tool_name": "23andMe",
+    "api_name": "drug_responses",
+    "api_description": "Our analysis of how each profile responds to these drugs (starred reports). status is reduced, typical, or increased for a person, not_applicable if the drug is not applicable to them (e.g., the oral contraceptives report is for women only), or null if they're not analyzed at any of the markers.",
+    "required_parameters": [
+      {
+        "name": "profile_id",
+        "type": "STRING",
+        "description": "profile_id",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://23andme-23andme.p.rapidapi.com/drug_responses/{profile_id}/"
+  },
+  {
+    "id": "5ea95b66-f72b-4a07-a73c-23c9924371a3",
+    "category_name": "Music",
+    "tool_name": "MusicData API",
+    "api_name": "/youtube/topviews/{year}",
+    "api_description": "Top Youtube viewed videos all time / on a specific year (2007 - now). Leave {year} blank for all time results",
+    "required_parameters": [
+      {
+        "name": "year",
+        "type": "string",
+        "description": "",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "api_url": "https://musicdata-api.p.rapidapi.com/youtube/topviews/{year}"
+  },
+  {
+    "id": "9e7326b5-034f-4f7d-b882-871fee9ddb1c",
+    "category_name": "Music",
+    "tool_name": "MusicData API",
+    "api_name": "/youtube/topviews/artist/{nationality}",
+    "api_description": "Youtube top viewed music video by X artist. (X: nationality of the artist). For example: \"/youtube/topviews/vietnamese\"",
+    "required_parameters": [
+      {
+        "name": "nationality",
+        "type": "string",
+        "description": "",
+        "default": "vietnamese"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "ranking": "str",
+      "video": "str",
+      "link": "str",
+      "views": "str",
+      "yesterday_views": "str"
+    },
+    "api_url": "https://musicdata-api.p.rapidapi.com/youtube/topviews/artist/{nationality}"
+  },
+  {
+    "id": "810f1e9f-8b79-4d92-ae83-450ad3daed52",
+    "category_name": "Music",
+    "tool_name": "Halsey Lyric Snippets",
+    "api_name": "random song from a specific {artist} and specified {album}",
+    "api_description": "This endpoint retrieves a random song from the specified album by the specified artist and returns it in the response.",
+    "required_parameters": [
+      {
+        "name": "artist",
+        "type": "string",
+        "description": "",
+        "default": "Halsey"
+      },
+      {
+        "name": "album",
+        "type": "string",
+        "description": "",
+        "default": "Hopeless Fountain Kingdom (Deluxe)"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "_id": "str",
+      "name": "str",
+      "lyrics": ["list of str with length 11"]
+    },
+    "api_url": "https://halsey-lyric-snippets.p.rapidapi.com/{artist}/album/{album}/song/random"
+  },
+  {
+    "id": "114df062-150f-42b0-b234-eaaeb9547558",
+    "category_name": "Business",
+    "tool_name": "Currency Exchange Rates",
+    "api_name": "Getting the latest exchange rate(s)",
+    "api_description": "The /live/ endpoint returns the most recent exchange rate(s) for a given set of currencies. The base currency is the currency you're converting FROM, while the target currency or currencies are what you're converting TO.\n\nIf no target currency or currencies are specified, then all available currencies are returned. You can see a full list of supported currencies at the bottom of this documentation.",
+    "required_parameters": [
+      {
+        "name": "base",
+        "type": "STRING",
+        "description": "The base currency used to get the latest exchange rate(s) for. Uses the ISO 4217 currency standard (e.g., USD for United States Dollars), like all currency parameters in this API. You can see a full list of supported currencies here.",
+        "default": "USD"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "target",
+        "type": "STRING",
+        "description": "The target currency or currencies to get the exchange rate of versus the base currency. Like the base parameters, any currency passed here follows the ISO 4217 standard. If multiple currencies are passed in the target, they should be separated by commas (e.g., &target=EUR,CAD,AUD).",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://currency-exchange-rates3.p.rapidapi.com/v1/live"
+  },
+  {
+    "id": "bfc75804-f183-4177-8d4e-24b4805ea5b5",
+    "category_name": "Business",
+    "tool_name": "Currency Exchange Rates",
+    "api_name": "Converting currencies",
+    "api_description": "The /convert/ endpoint is similar to the /live/ and /historical/ endpoints, except it allows you to convert an arbitrary amount of currency.\n\nFor example, it calculates how many EUR you would get for 1,337.99 USD today, or how many GBP and CAD you'd get for that amount on January 1, 2020.",
+    "required_parameters": [
+      {
+        "name": "base",
+        "type": "STRING",
+        "description": "The base currency used to get the latest exchange rate(s) for. Uses the ISO 4217 currency standard (e.g., USD for United States Dollars), like all currency parameters in this API. You can see a full list of supported currencies here.",
+        "default": "USD"
+      },
+      {
+        "name": "target",
+        "type": "STRING",
+        "description": "The target currency or currencies to get the exchange rate of versus the base currency. Like the base parameters, any currency passed here follows the ISO 4217 standard. Note that unlinke the other endpoints, /convert/ only accepts one target currency at a time.",
+        "default": "SGD"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "date",
+        "type": "STRING",
+        "description": "The historical date you'd like to get rates from, in the format of YYYY-MM-DD. If you leave this blank, it will use the latest available rate(s).",
+        "default": "2020-01-01"
+      },
+      {
+        "name": "base_amount",
+        "type": "STRING",
+        "description": "The amount of the base currency you would like to convert to the target currency.",
+        "default": "500"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://currency-exchange-rates3.p.rapidapi.com/v1/convert"
+  },
+  {
+    "id": "3d3199d0-4b45-44fc-b9fd-55e46d5623aa",
+    "category_name": "Business",
+    "tool_name": "German Company Data_v2",
+    "api_name": "/companies/{id}/events",
+    "api_description": "This endpoint returns the latest events about the company with the given identifier since the given timestamp. This timestamp is optional and is specified via a query parameter. Events come with a type (companies' register event, blog article, press release, etc.), a category (change in management, finances, merger/acquisition, etc.), a text (the content of the event), a source, and a timestamp.",
+    "required_parameters": [
+      {
+        "name": "id",
+        "type": "string",
+        "description": "",
+        "default": "DEVFCLQFW054"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "category",
+        "type": "STRING",
+        "description": "",
+        "default": "MANAGEMENT_AND_TEAM,FINANCES_AND_CAPITAL,NEWS_AND_EVENTS"
+      },
+      {
+        "name": "since",
+        "type": "DATE (YYYY-MM-DD)",
+        "description": "",
+        "default": "2017-01-01"
+      },
+      {
+        "name": "size",
+        "type": "NUMBER",
+        "description": "",
+        "default": "100"
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://german-company-data.p.rapidapi.com/companies/{is_id}/events"
+  },
+  {
+    "id": "2001e3cd-b861-4147-b38e-6a58a219f576",
+    "category_name": "Artificial_Intelligence_Machine_Learning",
+    "tool_name": "LemurBot",
+    "api_name": "List All Category Groups",
+    "api_description": "Categories are organised into category groups. For example if you have a set of categories to handle questions on the weather these could be grouped into a category group called 'weather-categories'.\nYou are able to view your own category groups and locked category groups.\n'Locked' category groups are a master set of records available to link to your bots",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "locked",
+        "type": "BOOLEAN",
+        "description": "Locked category groups can be linked to bot so that you can access their knowledge categories but you cannot cannot update, delete or access this group or it's categories",
+        "default": ""
+      },
+      {
+        "name": "order",
+        "type": "STRING",
+        "description": "the search field you wish to order by - the available field names are the sames ones you can search by",
+        "default": "id"
+      },
+      {
+        "name": "name",
+        "type": "STRING",
+        "description": "the name of the category group - this search is a partial search",
+        "default": "hello"
+      },
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "the page number of results to start from",
+        "default": 1
+      },
+      {
+        "name": "id",
+        "type": "NUMBER",
+        "description": "The id of the category group",
+        "default": ""
+      },
+      {
+        "name": "dir",
+        "type": "STRING",
+        "description": "the direction of the ordering",
+        "default": "asc"
+      },
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "the number of records to return",
+        "default": 20
+      },
+      {
+        "name": "slug",
+        "type": "STRING",
+        "description": "the slug of the category group - this search is an exact search",
+        "default": "hello"
+      },
+      {
+        "name": "description",
+        "type": "STRING",
+        "description": "the description of the category group - this search is a partial search",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://lemurbot.p.rapidapi.com/category-groups"
+  },
+  {
+    "id": "f1e14757-bfaf-41e5-8f5b-813fb07353d4",
+    "category_name": "Artificial_Intelligence_Machine_Learning",
+    "tool_name": "LemurBot",
+    "api_name": "List All Clients",
+    "api_description": "Clients talk to bots. This return a list of all clients that have spoken your bots. Clients can talk to your bots or the locked bots.\n'Locked' bots are a set of public bots available to link to your clients in addition to bots you create.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "order",
+        "type": "STRING",
+        "description": "the search field you wish to order by - the available field names are the sames ones you can search by",
+        "default": "id"
+      },
+      {
+        "name": "slug",
+        "type": "STRING",
+        "description": "The slug of the client",
+        "default": ""
+      },
+      {
+        "name": "id",
+        "type": "NUMBER",
+        "description": "The id of the client",
+        "default": ""
+      },
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "the number of records to return",
+        "default": 20
+      },
+      {
+        "name": "dir",
+        "type": "STRING",
+        "description": "the direction of the ordering",
+        "default": "asc"
+      },
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "the page number of results to start from",
+        "default": 1
+      },
+      {
+        "name": "is_banned",
+        "type": "BOOLEAN",
+        "description": "The banned status of this client",
+        "default": "name"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://lemurbot.p.rapidapi.com/clients"
+  },
+  {
+    "id": "f831c6a0-bec8-45d8-8d51-64849fcb49cf",
+    "category_name": "Artificial_Intelligence_Machine_Learning",
+    "tool_name": "LemurBot",
+    "api_name": "List All Categories",
+    "api_description": "Categories are pieces of knowledge used by the bots to respond to the user.\nCreate and update categories inorder to teach and train your bot.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "the number of records to return",
+        "default": 20
+      },
+      {
+        "name": "category_group_id",
+        "type": "NUMBER",
+        "description": "The id of the category group",
+        "default": ""
+      },
+      {
+        "name": "dir",
+        "type": "STRING",
+        "description": "the direction of the ordering",
+        "default": "asc"
+      },
+      {
+        "name": "topic",
+        "type": "STRING",
+        "description": "The active topic of the conversation - this search is a full term search",
+        "default": ""
+      },
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "the page number of results to start from",
+        "default": 1
+      },
+      {
+        "name": "order",
+        "type": "STRING",
+        "description": "the search field you wish to order by - the available field names are the sames ones you can search by",
+        "default": "id"
+      },
+      {
+        "name": "that",
+        "type": "STRING",
+        "description": "The that is the previous bot output/response to match on - this search is a partial search",
+        "default": ""
+      },
+      {
+        "name": "template",
+        "type": "STRING",
+        "description": "The template is the raw output that is parsed and used to generate a response - this search is a partial search",
+        "default": ""
+      },
+      {
+        "name": "pattern",
+        "type": "STRING",
+        "description": "The pattern is the user input to match on - this search is a partial search",
+        "default": "test"
+      },
+      {
+        "name": "id",
+        "type": "NUMBER",
+        "description": "The id of the category",
+        "default": ""
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str"
+    },
+    "api_url": "https://lemurbot.p.rapidapi.com/categories"
+  },
+  {
+    "id": "8b6e84cb-0c0d-4e1c-8fcc-db42e61bc432",
+    "category_name": "Communication",
+    "tool_name": "Zipwhip",
+    "api_name": "* user/login",
+    "api_description": "Takes a username and password and returns json with the account's session key. A sessionkey lasts forever, so it is best to store the sessionkey and use it for future purposes.",
+    "required_parameters": [
+      {
+        "name": "username",
+        "type": "STRING",
+        "description": "For US domestic use 10-digit number. For International numbers use full E.164 format. Examples: US: 5555555555 E.164: +1155555555555",
+        "default": ""
+      },
+      {
+        "name": "password",
+        "type": "STRING",
+        "description": "Password associated with phone number being entered in user/login.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "sessions": "NoneType",
+      "success": "bool",
+      "response": "str"
+    },
+    "api_url": "https://community-zipwhip.p.rapidapi.com/user/login"
+  },
+  {
+    "id": "8b89304b-69a3-4bf6-b5e0-3aed5ba50936",
+    "category_name": "Communication",
+    "tool_name": "Zipwhip",
+    "api_name": "conversation/delete",
+    "api_description": "Deletes the conversation based on the provided conversation ID. It also deletes the associated messages.",
+    "required_parameters": [
+      {
+        "name": "fingerprint",
+        "type": "STRING",
+        "description": "The unique identifier for a conversation. This can be retrieved from a conversation/list.",
+        "default": ""
+      },
+      {
+        "name": "session",
+        "type": "STRING",
+        "description": "This is the sessionKey that is returned from user/login. sessionKeys do not expire. Because of this, it is recommended that you do a single user/login and then save the sessionKey locally for future web calls.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "success": "bool",
+      "response": {
+        "desc": "str",
+        "code": "int",
+        "path": "str"
+      },
+      "sessions": "NoneType"
+    },
+    "api_url": "https://community-zipwhip.p.rapidapi.com/conversation/delete"
+  },
+  {
+    "id": "beec74b8-7762-448d-8059-175b543b5df3",
+    "category_name": "Communication",
+    "tool_name": "Zipwhip",
+    "api_name": "group/delete",
+    "api_description": "Delete the group. This is similar to deleting a contact, no message objects will be affected by deleting the group.",
+    "required_parameters": [
+      {
+        "name": "address",
+        "type": "STRING",
+        "description": "For US domestic use 10-digit number. For International numbers use full E.164 format. Examples: US: 5555555555 E.164: +1155555555555",
+        "default": ""
+      },
+      {
+        "name": "session",
+        "type": "STRING",
+        "description": "This is the sessionKey that is returned from user/login. sessionKeys do not expire. Because of this, it is recommended that you do a single user/login and then save the sessionKey locally for future web calls.",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "success": "bool",
+      "response": {
+        "desc": "str",
+        "code": "int",
+        "path": "str"
+      },
+      "sessions": "NoneType"
+    },
+    "api_url": "https://community-zipwhip.p.rapidapi.com/group/delete"
+  },
+  {
+    "id": "943789b8-09c1-40ca-ba7a-fd38fef6f5d5",
+    "category_name": "Email",
+    "tool_name": "MailSlurp Email Testing",
+    "api_name": "getBouncedRecipients",
+    "api_description": "Bounced recipients are email addresses that you have sent emails to that did not accept the sent email. Once a recipient is bounced you cannot send emails to that address.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "size",
+        "type": "NUMBER",
+        "description": "Optional page size ",
+        "default": 20
+      },
+      {
+        "name": "before",
+        "type": "STRING",
+        "description": "Filter by created at before the given timestamp",
+        "default": ""
+      },
+      {
+        "name": "sort",
+        "type": "STRING",
+        "description": "Optional createdAt sort direction ASC or DESC",
+        "default": "ASC"
+      },
+      {
+        "name": "since",
+        "type": "STRING",
+        "description": "Filter by created at after the given timestamp",
+        "default": ""
+      },
+      {
+        "name": "page",
+        "type": "NUMBER",
+        "description": "Optional page index ",
+        "default": 0
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "message": "str",
+      "caseNumber": "str",
+      "errorClass": "str",
+      "errorCode": "str",
+      "comment": "str"
+    },
+    "api_url": "https://jackmahoney-mailslurp-email-testing-v1.p.rapidapi.com/bounce/recipients"
+  },
+  {
+    "id": "b52ebfc1-3464-4323-8fa7-eb262b3ee341",
+    "category_name": "Advertising",
+    "tool_name": "SEO Automations",
+    "api_name": "Extract top Keywords, Phrases by density + all headers",
+    "api_description": "Analyze any webpage's keyword density for SEO or research. Get the specified number of keywords or phrases you wish, sorted by density and occurrences in a JSON format. The algorithm has been optimized for pages with large amounts of text, as well as advanced cloud infrastracure ensuring accurate and speedy results for your SEO needs. This API uses Puppeteer to scrape even the most advanced SPA ( Single Page Applications ).",
+    "required_parameters": [
+      {
+        "name": "url",
+        "type": "STRING",
+        "description": "",
+        "default": "https://en.wikipedia.org/wiki/Example.com"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "numPhrases",
+        "type": "NUMBER",
+        "description": "Number of phrases to return ( results are sorted by density ). \nBetween 1 and 100.\nDefault is 100.",
+        "default": "20"
+      },
+      {
+        "name": "phraseLength",
+        "type": "NUMBER",
+        "description": "Number of words in each phrase to return ( results are sorted by density ). \nBetween 1 and 10.\nDefault is 10.",
+        "default": "5"
+      },
+      {
+        "name": "n",
+        "type": "NUMBER",
+        "description": "Number of Keywords to return ( results are sorted by density ). \nBetween 1 and 100.\nDefault is 100.",
+        "default": "20"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "keywords": [
+        {
+          "keyword": "str",
+          "frequency": "float",
+          "_list_length": 20
+        }
+      ],
+      "phrases": ["list of list with length 20"]
+    },
+    "api_url": "https://seo-automations.p.rapidapi.com/v1/seo/getkeyworddensity/"
+  },
+  {
+    "id": "c8e51be3-9b7c-4cb9-aa8f-d812ea252e36",
+    "category_name": "Business_Software",
+    "tool_name": "B2BHint",
+    "api_name": "Get company [Full data]",
+    "api_description": "The Get company details endpoint will return all full company data, including company contacts, financial reports and other data",
+    "required_parameters": [
+      {
+        "name": "internationalNumber",
+        "type": "STRING",
+        "description": "",
+        "default": "0458.780.306"
+      },
+      {
+        "name": "countryCode",
+        "type": "STRING",
+        "description": "",
+        "default": "be"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": "{\"id\": \"int\", \"name\": \"str\", \"internationalNumber\": \"str\", \"localNumber\": \"str\", \"countryId\": \"int\", \"dateCreated\": \"str\", \"dateDisolved\": \"NoneType\", \"accountingAuthorityId\": \"NoneType\", \"createdAt\": \"str\", \"updatedAt\": \"str\", \"alternateNames\": \"empty list\", \"shortName\": \"str\", \"brandName\": \"str\", \"canSellShares\": \"NoneType\", \"address\": \"str\", \"hasPublicDebt\": \"NoneType\", \"paysVat\": \"bool\", \"vatNumber\": \"NoneType\", \"vatDate\": \"str\", \"vatCancelDate\": \"NoneType\", \"paysExcise\": \"NoneType\", \"exciseNumber\": \"NoneType\", \"exciseDate\": \"NoneType\", \"exciseCancelDate\": \"NoneType\", \"additionalData\": {}, \"europeanNumber\": \"NoneType\", \"typeId\": \"int\", \"statusText\": \"NoneType\", \"publicDebtAmount\": \"NoneType\", \"subscribedShareCapital\": \"NoneType\", \"paidShareCapital\": \"str\", \"terms\": \"NoneType\", \"annualAssembly\": \"str\", \"endDateFinancialYear\": \"str\", \"vatRemovalBasis\": \"NoneType\", \"vatRestorationBasis\": \"NoneType\", \"currentEmployeesNumber\": \"NoneType\", \"sharesValue\": \"NoneType\", \"sharesIssued\": \"None",
+    "api_url": "https://b2bhint.p.rapidapi.com/api/v1/rapidapi/company/full"
+  },
+  {
+    "id": "e5b64c48-17db-482c-9b52-3319aa0269a0",
+    "category_name": "Visual_Recognition",
+    "tool_name": "Background Remover",
+    "api_name": "getImage",
+    "api_description": "Retuns the result of an image that was previously handled by autoremove route for the given image Id.\naccepts two parameters:\n  - imageId: The Id of the image to get.\n  - recompute: bollean, if set to true, asks the server to remove the backgorund again for the specified ID (costs credits).\n",
+    "required_parameters": [
+      {
+        "name": "imageId",
+        "type": "STRING",
+        "description": "ID of the image to get",
+        "default": ""
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "recompute",
+        "type": "BOOLEAN",
+        "description": "ask the server to remove the background again (cost credits)",
+        "default": true
+      }
+    ],
+    "method": "GET",
+    "api_url": "https://background-remover5.p.rapidapi.com/image"
+  },
+  {
+    "id": "adda6520-e674-471f-b457-340f9b91fb0b",
+    "category_name": "Monitoring",
+    "tool_name": "ICS-CERT Advisories",
+    "api_name": "Get Advisories By Vendor",
+    "api_description": "This endpoint will return back Advisories by Vendor and provide timely information about current security issues, vulnerabilities, and exploits from CISA.gov",
+    "required_parameters": [
+      {
+        "name": "vendorId",
+        "type": "string",
+        "description": "",
+        "default": "Siemens"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "",
+        "default": "2"
+      },
+      {
+        "name": "info",
+        "type": "BOOLEAN",
+        "description": "",
+        "default": "true"
+      }
+    ],
+    "method": "GET",
+    "template_response": {},
+    "api_url": "https://ics-cert-advisories.p.rapidapi.com/advisories/{vendorid}"
+  },
+  {
+    "id": "4d87c5c0-e215-406f-b565-1da310274478",
+    "category_name": "Monitoring",
+    "tool_name": "ICS-CERT Advisories",
+    "api_name": "Get All Advisories",
+    "api_description": "This endpoint will return back all  advisories and provide timely information about current security issues, vulnerabilities, and exploits from CISA.gov",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "info",
+        "type": "BOOLEAN",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "",
+        "default": "2"
+      }
+    ],
+    "method": "GET",
+    "template_response": {},
+    "api_url": "https://ics-cert-advisories.p.rapidapi.com/advisories"
+  },
+  {
+    "id": "a02a0693-0904-4632-a94b-d0cca14646ef",
+    "category_name": "SMS",
+    "tool_name": "SMSto",
+    "api_name": "Get messages",
+    "api_description": "Fetch paginated messages.\n\nPlease note that the messages will be sorted by the date of creating (sending) - latest first.",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "created_at",
+        "type": "STRING",
+        "description": "Filter by created at",
+        "default": "2022-08-19"
+      },
+      {
+        "name": "order_by",
+        "type": "STRING",
+        "description": "Field to sort by",
+        "default": "created_at"
+      },
+      {
+        "name": "to",
+        "type": "STRING",
+        "description": "Filter by recipient number",
+        "default": "+3579865333"
+      },
+      {
+        "name": "order_direction",
+        "type": "STRING",
+        "description": "Sort messages.",
+        "default": "desc"
+      },
+      {
+        "name": "status",
+        "type": "STRING",
+        "description": "Filter by status",
+        "default": "REJECTED"
+      },
+      {
+        "name": "limit",
+        "type": "NUMBER",
+        "description": "The number of messages per page.",
+        "default": "15"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "success": "bool",
+      "message": "str",
+      "data": "empty list"
+    },
+    "api_url": "https://smsto.p.rapidapi.com/messages"
+  },
+  {
+    "id": "02da5d2a-38c3-4792-9c54-da56cfd7c3d5",
+    "category_name": "Energy",
+    "tool_name": "ecoweather",
+    "api_name": "Schneetage",
+    "api_description": "Beantwortet die Frage, wie viel Schnee und an wie viel Tagen innerhalb eines Zeitraums vorhanden gewesen ist. Wird verwendet zum Beispiel bei der Einsatzplanung im Winterdienst und Hausmeisterservice sowie im Tourismus.",
+    "required_parameters": [
+      {
+        "name": "from",
+        "type": "STRING",
+        "description": "",
+        "default": "2021-01-01"
+      },
+      {
+        "name": "lon",
+        "type": "NUMBER",
+        "description": "",
+        "default": "8.79"
+      },
+      {
+        "name": "lat",
+        "type": "NUMBER",
+        "description": "",
+        "default": "49.34"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "to",
+        "type": "STRING",
+        "description": "",
+        "default": "2021-09-21"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "input": {
+        "geo": {
+          "lat": "str",
+          "lon": "str"
+        },
+        "timeframe": {
+          "from": "str",
+          "to": "str"
+        }
+      },
+      "aggregations": {
+        "snowdays": "int",
+        "snow": "float"
+      },
+      "result": [
+        {
+          "timestamp": "int",
+          "date": "str",
+          "snow": "float",
+          "_list_length": 264
+        }
+      ]
+    },
+    "api_url": "https://ecoweather.p.rapidapi.com/ucsnow"
+  },
+  {
+    "id": "b70db3fc-db3a-4453-ba19-276d65472517",
+    "category_name": "Energy",
+    "tool_name": "ecoweather",
+    "api_name": "Heizgradtage",
+    "api_description": "Beantwortet die Frage, wie viele Heizgradtage innerhalb eines Zeitraums vorhanden gewesen sind. Wird verwendet zum Beispiel bei der unterjährigen Abgrenzung von Heizkosten bei der Nebenkostenabrechnung.",
+    "required_parameters": [
+      {
+        "name": "from",
+        "type": "STRING",
+        "description": "",
+        "default": "2021-01-01"
+      },
+      {
+        "name": "lon",
+        "type": "NUMBER",
+        "description": "",
+        "default": "8.79"
+      },
+      {
+        "name": "lat",
+        "type": "NUMBER",
+        "description": "",
+        "default": "49.34"
+      }
+    ],
+    "optional_parameters": [
+      {
+        "name": "to",
+        "type": "STRING",
+        "description": "",
+        "default": "2021-09-21"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "input": {
+        "geo": {
+          "lat": "str",
+          "lon": "str"
+        },
+        "timeframe": {
+          "from": "str",
+          "to": "str"
+        }
+      },
+      "aggregations": {
+        "hdd12": "float",
+        "hdd15": "float"
+      },
+      "result": [
+        {
+          "timestamp": "int",
+          "date": "str",
+          "hdd12": "float",
+          "hdd15": "float",
+          "_list_length": 264
+        }
+      ]
+    },
+    "api_url": "https://ecoweather.p.rapidapi.com/uchdd"
+  },
+  {
+    "id": "0075f90f-1ec6-4f3d-a13e-f20a01d7c478",
+    "category_name": "Logistics",
+    "tool_name": "Pack & Send",
+    "api_name": "/api/Tracking/",
+    "api_description": "If you support your Pack & Send Reference Number, we can provide your with some relevant information.",
+    "required_parameters": [
+      {
+        "name": "reference",
+        "type": "string",
+        "description": "",
+        "default": "ReferenceNumberHere"
+      }
+    ],
+    "optional_parameters": [],
+    "method": "GET",
+    "template_response": {
+      "type": "str",
+      "title": "str",
+      "status": "int",
+      "traceId": "str"
+    },
+    "api_url": "https://pack-send.p.rapidapi.com/api/tracking/{reference}"
+  },
+  {
+    "id": "e0780bba-55e8-4a95-919a-27560615fa41",
+    "category_name": "Payments",
+    "tool_name": "Fake Valid CC Data Generator",
+    "api_name": "Receive the credit card data",
+    "api_description": "Receive the requested credit card data set consisting of:\n\n- type\n- firstname\n- lastname\n- cc\n- valid_date\n- cvc\n\n**The following providers are valid and can be generated**\n***amex,diners,discover',jcb',jcb15,jcb16,maestro,mastercard,visa,visa13,visa16,visa19***",
+    "required_parameters": [],
+    "optional_parameters": [
+      {
+        "name": "visa_type",
+        "type": "STRING",
+        "description": "",
+        "default": "visa"
+      }
+    ],
+    "method": "GET",
+    "template_response": {
+      "type": "str",
+      "firstname": "str",
+      "lastname": "str",
+      "cc": "str",
+      "valid_date": "str",
+      "cvc": "str"
+    },
+    "api_url": "https://fake-valid-cc-data-generator.p.rapidapi.com/request/"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "anytool-template",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Brace Sproul",
+  "license": "MIT",
+  "workspaces": [
+    "backend"
+  ],
+  "scripts": {
+    "start:backend": "yarn turbo run start --filter=backend",
+    "build": "yarn turbo run build",
+    "lint": "yarn turbo run lint",
+    "format": "yarn turbo run format",
+    "dev": "yarn turbo run dev"
+  },
+  "devDependencies": {
+    "turbo": "latest"
+  },
+  "resolutions": {
+    "@langchain/core": "0.1.49"
+  }
+}
