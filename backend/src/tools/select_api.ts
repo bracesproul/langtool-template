@@ -1,8 +1,8 @@
 import { StructuredTool } from "@langchain/core/tools";
 import { z } from "zod";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { GraphState } from "index.js";
 import { DatasetSchema } from "types.js";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
 
 /**
  * Given a users query, choose the API which best
@@ -33,7 +33,9 @@ export class SelectAPITool extends StructuredTool {
     super();
     this.description = SelectAPITool.createDescription(apis, query);
     this.schema = z.object({
-      api: z.enum(apis.map((api) => api.api_name) as [string, ...string[]]).describe("The name of the API which best matches the query."),
+      api: z
+        .enum(apis.map((api) => api.api_name) as [string, ...string[]])
+        .describe("The name of the API which best matches the query."),
     });
     this.apis = apis;
   }
@@ -44,19 +46,29 @@ export class SelectAPITool extends StructuredTool {
 Query: ${query}
 
 APIs:
-${apis.map((api) => `Tool name: ${api.tool_name}
+${apis
+  .map(
+    (api) => `Tool name: ${api.tool_name}
 API Name: ${api.api_name}
 Description: ${api.api_description}
-Parameters: ${[...api.required_parameters, ...api.optional_parameters].map((p) => `Name: ${p.name}, Description: ${p.description}`).join("\n")}`).join("\n---\n")}`;
+Parameters: ${[...api.required_parameters, ...api.optional_parameters]
+      .map((p) => `Name: ${p.name}, Description: ${p.description}`)
+      .join("\n")}`
+  )
+  .join("\n---\n")}`;
 
-  return description;
+    return description;
   }
 
   async _call(input: z.infer<typeof this.schema>): Promise<string> {
     const { api: apiName } = input;
     const bestApi = this.apis.find((a) => a.api_name === apiName);
     if (!bestApi) {
-      throw new Error(`API ${apiName} not found in list of APIs: ${this.apis.map((a) => a.api_name).join(", ")}`);
+      throw new Error(
+        `API ${apiName} not found in list of APIs: ${this.apis
+          .map((a) => a.api_name)
+          .join(", ")}`
+      );
     }
     return JSON.stringify(bestApi);
   }
@@ -65,16 +77,21 @@ Parameters: ${[...api.required_parameters, ...api.optional_parameters].map((p) =
 /**
  * @param {GraphState} state
  */
-export async function selectApi(state: GraphState): Promise<Partial<GraphState>> {
+export async function selectApi(
+  state: GraphState
+): Promise<Partial<GraphState>> {
   const { llm, query, apis } = state;
   if (apis === null || apis.length === 0) {
     throw new Error("No APIs passed to select_api_node");
   }
 
   const prompt = ChatPromptTemplate.fromMessages([
-    ["system", `You are an expert software engineer, helping a junior engineer select the best API for their query.
-Given their query, use the 'Select_API' tool to select the best API for the query.`],
-["human", `Query: {query}`]
+    [
+      "system",
+      `You are an expert software engineer, helping a junior engineer select the best API for their query.
+Given their query, use the 'Select_API' tool to select the best API for the query.`,
+    ],
+    ["human", `Query: {query}`],
   ]);
 
   const tool = new SelectAPITool(apis, query);
@@ -90,5 +107,5 @@ Given their query, use the 'Select_API' tool to select the best API for the quer
 
   return {
     bestApi,
-  }
+  };
 }

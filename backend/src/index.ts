@@ -70,18 +70,25 @@ const graphChannels = {
 /**
  * @param {GraphState} state
  */
-const verifyParams = (state: GraphState): "human_loop_node" | "execute_request_node" => {
+const verifyParams = (
+  state: GraphState
+): "human_loop_node" | "execute_request_node" => {
   const { bestApi, params } = state;
   if (!bestApi) {
     throw new Error("No best API found");
   }
   if (!params) {
-    console.log("NO PARAMS")
-    return "human_loop_node"
+    console.log("NO PARAMS");
+    return "human_loop_node";
   }
-  const requiredParamsKeys = bestApi.required_parameters.map(({ name }) => name);
+  const requiredParamsKeys = bestApi.required_parameters.map(
+    ({ name }) => name
+  );
   const extractedParamsKeys = Object.keys(params);
-  const missingKeys = findMissingParams(requiredParamsKeys, extractedParamsKeys);
+  const missingKeys = findMissingParams(
+    requiredParamsKeys,
+    extractedParamsKeys
+  );
   if (missingKeys.length > 0) {
     return "human_loop_node";
   }
@@ -93,13 +100,17 @@ function getApis(state: GraphState) {
   if (!categories || categories.length === 0) {
     throw new Error("No categories passed to get_apis_node");
   }
-  const allData: DatasetSchema[] = JSON.parse(fs.readFileSync(TRIMMED_CORPUS_PATH, "utf8"));
+  const allData: DatasetSchema[] = JSON.parse(
+    fs.readFileSync(TRIMMED_CORPUS_PATH, "utf8")
+  );
 
-  const apis = categories.map((c) => allData.filter((d) => d.category_name === c)).flat();
+  const apis = categories
+    .map((c) => allData.filter((d) => d.category_name === c))
+    .flat();
 
   return {
     apis,
-  }
+  };
 }
 
 /**

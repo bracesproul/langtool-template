@@ -3,7 +3,9 @@ import { GraphState } from "index.js";
 /**
  * @param {GraphState} state
  */
-export async function createFetchRequest(state: GraphState): Promise<Partial<GraphState>> {
+export async function createFetchRequest(
+  state: GraphState
+): Promise<Partial<GraphState>> {
   const { params, bestApi } = state;
   if (!bestApi) {
     throw new Error("No best API found");
@@ -13,13 +15,13 @@ export async function createFetchRequest(state: GraphState): Promise<Partial<Gra
   let response: any = null;
   try {
     if (!params) {
-      console.log("Making request with params")
+      console.log("Making request with params");
       const fetchRes = await fetch(bestApi.api_url, {
         method: bestApi.method,
       });
       response = fetchRes.ok ? await fetchRes.json() : await fetchRes.text();
     } else {
-      console.log("Making request WITHOUT params")
+      console.log("Making request WITHOUT params");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let fetchOptions: Record<string, any> = {
         method: bestApi.method,
@@ -37,12 +39,14 @@ export async function createFetchRequest(state: GraphState): Promise<Partial<Gra
       const url = new URL(parsedUrl);
 
       if (["GET", "HEAD"].includes(bestApi.method)) {
-        Object.entries(params).forEach(([key, value]) => url.searchParams.append(key, value));
+        Object.entries(params).forEach(([key, value]) =>
+          url.searchParams.append(key, value)
+        );
       } else {
         fetchOptions = {
           ...fetchOptions,
           body: JSON.stringify(params),
-        }
+        };
       }
 
       const fetchRes = await fetch(url, fetchOptions);
@@ -61,5 +65,5 @@ export async function createFetchRequest(state: GraphState): Promise<Partial<Gra
 
   return {
     response: null,
-  }
+  };
 }
