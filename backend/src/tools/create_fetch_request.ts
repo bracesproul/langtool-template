@@ -11,18 +11,14 @@ export async function createFetchRequest(
     throw new Error("No best API found");
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let response: any = null;
   try {
     if (!params) {
-      console.log("Making request with params");
       const fetchRes = await fetch(bestApi.api_url, {
         method: bestApi.method,
       });
       response = fetchRes.ok ? await fetchRes.json() : await fetchRes.text();
     } else {
-      console.log("Making request WITHOUT params");
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let fetchOptions: Record<string, any> = {
         method: bestApi.method,
       };
@@ -60,7 +56,7 @@ export async function createFetchRequest(
     }
   } catch (e) {
     console.error("Error fetching API");
-    // console.error(e);
+    console.error(e);
   }
 
   return {

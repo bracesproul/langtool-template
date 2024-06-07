@@ -57,7 +57,7 @@ export function parseUserInput(input: string): Record<string, string> {
 export async function requestParameters(
   state: GraphState
 ): Promise<Partial<GraphState>> {
-  const { llm, bestApi, params } = state;
+  const { bestApi, params } = state;
   if (!bestApi) {
     throw new Error("No best API found");
   }
@@ -77,14 +77,6 @@ export async function requestParameters(
 
   const userInput = await readUserInput(missingParamsSchemas);
   const parsedUserInput = parseUserInput(userInput);
-
-  console.log(
-    `\n-----\nNew parsed params: ${JSON.stringify(
-      parsedUserInput,
-      null,
-      2
-    )}\n-----\n`
-  );
 
   return {
     params: {

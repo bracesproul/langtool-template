@@ -14,7 +14,6 @@ export interface DatasetSchema {
   required_parameters: DatasetParameters[];
   optional_parameters: DatasetParameters[];
   method: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   template_response: Record<string, any>;
   api_url: string;
 }

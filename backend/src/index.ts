@@ -1,6 +1,6 @@
 // Define graph here
 import fs from "fs";
-import { END, StateGraph } from "@langchain/langgraph";
+import { END, START, StateGraph } from "@langchain/langgraph";
 import { ChatOpenAI } from "@langchain/openai";
 import { extractCategory } from "tools/extract_category.js";
 import { DatasetSchema } from "types.js";
@@ -39,32 +39,17 @@ export type GraphState = {
   /**
    * The API response
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   response: Record<string, any> | null;
 };
 
 const graphChannels = {
-  llm: {
-    value: null,
-  },
-  query: {
-    value: null,
-  },
-  categories: {
-    value: null,
-  },
-  apis: {
-    value: null,
-  },
-  bestApi: {
-    value: null,
-  },
-  params: {
-    value: null,
-  },
-  response: {
-    value: null,
-  },
+  llm: null,
+  query: null,
+  categories: null,
+  apis: null,
+  bestApi: null,
+  params: null,
+  response: null,
 };
 
 /**
@@ -78,7 +63,6 @@ const verifyParams = (
     throw new Error("No best API found");
   }
   if (!params) {
-    console.log("NO PARAMS");
     return "human_loop_node";
   }
   const requiredParamsKeys = bestApi.required_parameters.map(
@@ -119,28 +103,22 @@ function getApis(state: GraphState) {
 function createGraph() {
   const graph = new StateGraph<GraphState>({
     channels: graphChannels,
-  });
-
-  graph.addNode("extract_category_node", extractCategory);
-  graph.addNode("get_apis_node", getApis);
-  graph.addNode("select_api_node", selectApi);
-  graph.addNode("extract_params_node", extractParameters);
-  graph.addNode("human_loop_node", requestParameters);
-  graph.addNode("execute_request_node", createFetchRequest);
-
-  graph.addEdge("extract_category_node", "get_apis_node");
-  graph.addEdge("get_apis_node", "select_api_node");
-  graph.addEdge("select_api_node", "extract_params_node");
-
-  graph.addConditionalEdges("extract_params_node", verifyParams);
-
-  graph.addConditionalEdges("human_loop_node", verifyParams);
-
-  graph.setEntryPoint("extract_category_node");
-  graph.setFinishPoint("execute_request_node");
+  })
+    .addNode("extract_category_node", extractCategory)
+    .addNode("get_apis_node", getApis)
+    .addNode("select_api_node", selectApi)
+    .addNode("extract_params_node", extractParameters)
+    .addNode("human_loop_node", requestParameters)
+    .addNode("execute_request_node", createFetchRequest)
+    .addEdge("extract_category_node", "get_apis_node")
+    .addEdge("get_apis_node", "select_api_node")
+    .addEdge("select_api_node", "extract_params_node")
+    .addConditionalEdges("extract_params_node", verifyParams)
+    .addConditionalEdges("human_loop_node", verifyParams)
+    .addEdge(START, "extract_category_node")
+    .addEdge("execute_request_node", END);
 
   const app = graph.compile();
-
   return app;
 }
 
