@@ -150,9 +150,9 @@ async function main(query: string) {
   let finalResult: GraphState | null = null;
   for await (const event of stream) {
     console.log("\n------\n");
-    if (Object.keys(event)[0] === END) {
+    if (Object.keys(event)[0] === "execute_request_node") {
       console.log("---FINISHED---");
-      finalResult = event[END];
+      finalResult = event.execute_request_node;
     } else {
       console.log("Stream event: ", Object.keys(event)[0]);
       // Uncomment the line below to see the values of the event.
