@@ -14,17 +14,17 @@
     "lint": "eslint --cache --ext .ts,.js src/",
     "lint:fix": "yarn lint --fix",
     "precommit": "lint-staged",
-    "format": "prettier --write \"**/*.ts\"",
-    "format:check": "prettier --check \"**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\" \"src/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"src/*.ts\""
   },
   "author": "Brace Sproul",
   "license": "MIT",
   "dependencies": {
-    "@langchain/community": "^0.0.41",
-    "@langchain/core": "^0.1.49",
-    "@langchain/langgraph": "^0.0.10",
-    "@langchain/openai": "^0.0.22",
-    "langchain": "^0.1.28",
+    "@langchain/community": "^0.2.9",
+    "@langchain/core": "^0.2.6",
+    "@langchain/langgraph": "^0.0.22",
+    "@langchain/openai": "^0.1.2",
+    "langchain": "^0.2.5",
     "readline": "^1.3.0",
     "zod": "^3.22.4"
   },
